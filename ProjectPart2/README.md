@@ -1,4 +1,4 @@
-# Introduction to R
+# Project Part 2
 
 ## Installation Instructions
 

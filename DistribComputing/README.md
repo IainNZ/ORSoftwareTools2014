@@ -1,4 +1,4 @@
-# Introduction to R
+# Distributed Computing
 
 ## Installation Instructions
 
