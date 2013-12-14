@@ -3,8 +3,8 @@
 
 # First, load datasets. It's often more convenient to just keep strings as
 # strings, so we pass stringsAsFactors=FALSE.
-stations = read.csv("stations.csv", stringsAsFactors=FALSE)
-trips = read.csv("trips.csv", stringsAsFactors=FALSE)
+stations = read.csv("../Hubway/stations.csv", stringsAsFactors=FALSE)
+trips = read.csv("../Hubway/trips.csv", stringsAsFactors=FALSE)
 
 # str() and summary() are always a good way to start
 str(stations)
