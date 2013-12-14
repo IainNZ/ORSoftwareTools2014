@@ -68,8 +68,8 @@ function nameservice(req::Request, res::Response)
         user_name = req_split[3]
 
         # Build our response string
-        # We'll include a bit of HTML to make it pretty
-        return Response("<blink>Hey there $(user_name)!</blink>")
+        # We'll include a bit of HTML to make it bold
+        return Response("<b>Hey there $(user_name)!</b>")
     else
         # User requested something that we don't do!
         # Return 404 NOT FOUND

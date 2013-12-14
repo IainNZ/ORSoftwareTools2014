@@ -17,7 +17,7 @@ function nameservice(req::Request, res::Response)
         if length(req_split) != 3
             return Response(400, "Error: too many arguments!")
         end
-        return Response("<blink>Hey there $(req_split[3])!</blink>")
+        return Response("<b>Hey there $(req_split[3])!</b>")
     end
     return Response(404, "We don't do that...")
 end
