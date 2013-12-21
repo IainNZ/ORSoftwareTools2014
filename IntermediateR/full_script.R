@@ -232,7 +232,7 @@ table(station.info$day2)
 
 # From trips, create a data frame called bicycle.info, where each row corresponds
 # to one bicycle. Include the following variables in your new data frame:
-#   - bike_nr: The bicycle number of this bicycle
+#   - bike.nr: The bicycle number of this bicycle
 #   - mean.duration: Average trip duration (seconds)
 #   - sd.duration: Standard deviation of trip duration (seconds)
 #   - num.trips: Number of trips taken by the bicycle (Hint: ?nrow)
@@ -244,7 +244,7 @@ table(station.info$day2)
 spl = split(trips, trips$bike_nr)
 
 process.bike = function(x) {
-	bike_nr = x$bike_nr[1]
+	bike.nr = x$bike_nr[1]
 	mean.duration = mean(x$duration)
 	sd.duration = sd(x$duration)
 	num.trips = nrow(x)
