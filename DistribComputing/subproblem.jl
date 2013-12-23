@@ -74,10 +74,10 @@ end
 # netFlowPerPeriod[t][a] is the net bicycle flow into station (from trips) a during time period t
 # totalBikes is the total number of bicycles in the system today
 # stationCapacity is the capacity of each station
-function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stationCapacities)
+function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stationCapacities, verbose = false)
 
-    m = Model(solver=ClpSolver())
-    #m = Model(solver=GurobiSolver())
+    #m = Model(solver=ClpSolver())
+    m = Model(solver=GurobiSolver(InfUnbdInfo=1,OutputFlag=0,Method=1))
     # flow from "source" node into each station
     @defVar(m, fsource[S] >= 0)
     # flow from last exit nodes into "sink"
@@ -87,7 +87,7 @@ function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stati
     # (entry node s,t) ===> (exit node s,t)   
     @defVar(m, fcap[s=S, 1:T] >= 0)
 
-    @defConstrRef(m, capacityConstraint[S,1:T])
+    @defConstrRef capacityConstraint[S,1:T]
     for s in S
         for t in 1:T
             capacityConstraint[s,t] = 
@@ -130,28 +130,33 @@ function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stati
         s = S, k = S, t = 1:(T-1)})
 
     status = solve(m)
+    val = 0.0
     
     if status == :Optimal
-        println(getValue(fsource))
-        println(getValue(fsink))
-        for t in 1:(T-1)
-            println("At period $t:")
-            for s in S
-                for k in S
-                    v = getValue(fshuffle[s,k,t])
-                    if abs(v) > 1e-7
-                        if k == s
-                            #println("Keep $v at station $s")
-                        else
-                            println("Shuffle $v from station $s to station $k")
+        val = getObjectiveValue(m)
+        if verbose
+            println(getValue(fsource))
+            println(getValue(fsink))
+            for t in 1:(T-1)
+                println("At period $t:")
+                for s in S
+                    for k in S
+                        v = getValue(fshuffle[s,k,t])
+                        if abs(v) > 1e-7
+                            if k == s
+                                #println("Keep $v at station $s")
+                            else
+                                println("Shuffle $v from station $s to station $k")
+                            end
+                            #println(directedCostMatrix[s][k])
                         end
-                        #println(directedCostMatrix[s][k])
                     end
                 end
             end
+            println("Optimal objective is: ", getObjectiveValue(m))
         end
-        println("Optimal objective is: ", getObjectiveValue(m))
     end
+
 
     # return a subgradient with respect to the station capacities
     subgrad = [s => 0.0 for s in S]
@@ -159,12 +164,23 @@ function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stati
         for s in S
             du = getDual(capacityConstraint[s,t])
             subgrad[s] += du
+            val -= du*stationCapacities[s]
         end
     end
 
-    return status, subgrad
+    if status == :Infeasible
+        negval = val
+        # compute ray value
+        val = dot(m.linconstrDuals,[JuMP.rhs(c) for c in m.linconstr])
+        println("VAL: $val")
+        @assert val > 1e-5
+        val += negval
+    end
+
+    return status, subgrad, val
 
 end
+
 
 function test()
     S = [1,2]
@@ -189,7 +205,7 @@ end
 test()
 #test("2012-07-05", [43200], 800)
 #test("2012-07-05", [36000,57600, 72000], 400)
-test("2012-07-05", [i*60^2 for i in 1:23], 200)
-@time test("2012-07-05", [i*60^2 for i in 1:23], 200)
+#test("2012-07-05", [i*60^2 for i in 1:23], 200)
+#@time test("2012-07-05", [i*60^2 for i in 1:23], 200)
 
 
