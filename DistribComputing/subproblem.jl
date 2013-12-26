@@ -69,13 +69,13 @@ end
 
 # solve min-cost optimal "shuffling" problem as a network LP
 # S is the set of station IDs
-# T is the number of time periods
 # directedCostMatrix[a][b] is the cost of moving one bike from station with index a to station with index b
 # netFlowPerPeriod[t][a] is the net bicycle flow into station (from trips) a during time period t
 # totalBikes is the total number of bicycles in the system today
 # stationCapacity is the capacity of each station
-function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stationCapacities, verbose = false)
+function networkLP(S, directedCostMatrix, netFlowPerPeriod, totalBikes, stationCapacities, verbose = false)
 
+    T = length(netFlowPerPeriod)
     #m = Model(solver=ClpSolver())
     m = Model(solver=GurobiSolver(InfUnbdInfo=1,OutputFlag=0,Method=1))
     # flow from "source" node into each station
@@ -163,6 +163,7 @@ function networkLP(S, T, directedCostMatrix, netFlowPerPeriod, totalBikes, stati
     for t in 1:T
         for s in S
             du = getDual(capacityConstraint[s,t])
+            @assert du < 1e-6
             subgrad[s] += du
             val -= du*stationCapacities[s]
         end
@@ -188,7 +189,7 @@ function test()
     flow = { [ -1, 0], [0, 1] }
     totalBikes = 2
     capacities = [2,2]
-    networkLP(S, 2, costMatrix, flow, totalBikes, capacities)
+    networkLP(S, costMatrix, flow, totalBikes, capacities)
 end
 
 
@@ -198,7 +199,7 @@ function test(date,cutoffs, totalBikes)
     stationsThisPeriod, netFlowPerPeriod = calculateNetFlows(S, cutoffs, day...)
     println(length(stationsThisPeriod), " stations")
     capacities = [ s => 35 for s in S ]
-    networkLP(stationsThisPeriod,length(cutoffs)+1,costMatrix,netFlowPerPeriod,totalBikes,capacities)
+    networkLP(stationsThisPeriod,costMatrix,netFlowPerPeriod,totalBikes,capacities)
 
 end
 

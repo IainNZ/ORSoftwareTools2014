@@ -13,8 +13,9 @@ function master(dates, cutoffs, totalBikes)
     m = Model()
     @defVar(m, cap[S] >= 0)
     @defVar(m, theta[dates] >= 0 )
+    const weight = 100
     @setObjective(m, Min, sum{ cap[s], s = S } + 
-        (1/length(dates))*sum{ theta[d], d = dates })
+        weight*(1/length(dates))*sum{ theta[d], d = dates })
 
     ub = Inf
     lb = -Inf
@@ -29,7 +30,7 @@ function master(dates, cutoffs, totalBikes)
         for d in dates
             stationsThisPeriod, netFlow = dateinfo[d]
             # solve subproblem
-            status, subgrad, objval = networkLP(stationsThisPeriod, length(cutoffs)+1,
+            status, subgrad, objval = networkLP(stationsThisPeriod,
                 costMatrix, netFlow, totalBikes,currentCapacities)
             if status == :Optimal
                 #println("OPT")
@@ -38,7 +39,7 @@ function master(dates, cutoffs, totalBikes)
                 @addConstraint(m, 
                     theta[d] >= objval + sum{ subgrad[s]*(cap[s]-currentCapacities[s]),
                         s = stationsThisPeriod })
-                ub += (1/length(dates))*objval
+                ub += weight*(1/length(dates))*objval
             elseif status == :Infeasible
                 println("INFEAS")
                 # feasibility cut
@@ -58,7 +59,7 @@ function run()
     dates = [split(s,'.')[1] for s in readdir("tripsbydate")]
     cutoffs = [i*60^2 for i in 1:23] # reshuffle every hour
     totalBikes = 500
-    master(dates, cutoffs,totalBikes)
+    master(dates[1:2], cutoffs,totalBikes)
 
 
 end
