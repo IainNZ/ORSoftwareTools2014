@@ -2,6 +2,8 @@
 
 ## Installation Instructions
 
+If you find any errors in these instructions, please contact the course instructors so we can update them for everyone.
+
 ### Install Gurobi 5.6.0
 If you have an older version of Gurobi (>= 5.1) on your computer, that should be fine.  None of the features we will be using require the latest version.  We will be using the 64bit version of Julia, so make sure that you have the 64 bit version of Gurobi intalled.  If you need a new version:
 
