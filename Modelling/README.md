@@ -5,7 +5,7 @@
 If you find any errors in these instructions, please contact the course instructors so we can update them for everyone.
 
 ### Install Gurobi 5.6.0
-If you have an older version of Gurobi (>= 5.1) on your computer, that should be fine.  None of the features we will be using require the latest version.  We will be using the 64bit version of Julia, so make sure that you have the 64 bit version of Gurobi intalled.  If you need a new version:
+If you have an older version of Gurobi (>= 5.5) on your computer, that should be fine.  Some of the features we will use later in the course requier a fairly new version of Gurobi.  We will be using the 64bit version of Julia, so make sure that you have the 64 bit version of Gurobi intalled.  If you need a new version:
 
 1. Go to www.gurobi.com
 2. Create an account, and request an academic license.
@@ -30,19 +30,10 @@ You can now run Julia by typing julia at the command line. To run a Julia file, 
 
 ### Windows 
 
-You may install the Julia 0.2-RC binaries from http://julialang.org/downloads/.
+You may install the Julia 0.2-RC binaries from http://julialang.org/downloads/.  
 
 ### Linux
-1. We will use the latest nightly binaries. We can do this by adding a new repository. Run the following commands at your prompt:
-
-```bash
-sudo add-apt-repository ppa:staticfloat/julianightlies
-sudo add-apt-repository ppa:staticfloat/julia-deps
-sudo apt-get update
-sudo apt-get install julia
-```
-2. When thats done, type ``julia`` at your prompt to start Julia. Check that it starts!
-
+Follow the instructions here: http://julialang.org/downloads/ depending on your particular flavor of Linux.  
 
 ### Install JuMP
 Installing JuMP is easy, use the Julia package manager: 
