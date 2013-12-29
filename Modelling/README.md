@@ -12,10 +12,7 @@ If you have an older version of Gurobi on your computer, that should be fine.  N
 5. Go back to the website and navigate to the page for your academic license. You'll be given a command with a big code in it, e.g. grbgetkey aaaaa-bbbb
 6. In a terminal, navigate to the .../gurobi560/<operating system>/bin folder where <operating system> is the name of your operating system.  
 7. Copy-and-paste the command from the website into the command prompt - you need to be on campus for this to work!
-8. Go up a level (cd ..)
-9.  UNLESS you are on Mac OSX, run the command python setup.py install Apparently this is a bad idea on OSX!  If you are on Mac OSX, see the note below.
 
-You are done!
 
 ### Install Julia
 
