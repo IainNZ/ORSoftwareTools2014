@@ -3,7 +3,7 @@
 ## Installation Instructions
 
 ### Install Gurobi 5.6.0
-If you have an older version of Gurobi on your computer, that should be fine.  None of the features we will be using require the latest version.  Otherwise, 
+If you have an older version of Gurobi on your computer, that should be fine.  None of the features we will be using require the latest version.  We will be using the 64bit version of Julia, so make sure that you have the 64 bit version of Gurobi intalled.  If you need a new version:
 
 1. Go to www.gurobi.com
 2. Create an account, and request an academic license.
@@ -15,10 +15,39 @@ If you have an older version of Gurobi on your computer, that should be fine.  N
 
 
 ### Install Julia
+#### Mac OS X
+1.  We will use the v0.2-rc2 binaries provided http://julialang.org/downloads/.  If you are running OS-X Lion, Mountain Lion, or Mavericks, choose the 10.7+64-bit version.  Snow Leopard users, the 10.6 64-bit version is for you.
+2. Once downloaded, open the .dmg disk image in Finder and then drag Julia-0.2.0-rc2.app to your Applications folder.
+3. Click on the Julia-0.2.0-rc2.app file to open it. If it does not open, you may need to change your applications permissions:
+Open System Preferences.app
+Go to Security and Privacy
+Click "Allow Anyway" next to Julia-0.2.0-rc2.app
+4. Open the Terminal.app add the Julia executable to your path:
+Run nano ~/.bash_profile and add export PATH=$PATH:"/Applications/Julia-0.2.0-rc2.app/Contents/Resources/julia/bin" to the bottom of the file.
+You can now run Julia by typing julia at the command line. To run a Julia file, type julia path/to/file.
+
+### Windows 
+
+You may install the Julia 0.2-RC binaries from http://julialang.org/downloads/.
+
+### Linux
+1. We will use the latest nightly binaries. We can do this by adding a new repository. Run the following commands at your prompt:
+
+```bash
+sudo add-apt-repository ppa:staticfloat/julianightlies
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
+```
+2. When thats done, type ``julia`` at your prompt to start Julia. Check that it starts!
 
 
 ### Install JuMP
+Installing JuMP is easy, use the Julia package manager: 
 
+```
+julia> Pkg.add("JuMP")
+```
 
 ### Data and Exercise scripts!
 
