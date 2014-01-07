@@ -16,10 +16,13 @@ summary(trips)
 # let's remove the rows that are missing this information.
 trips = subset(trips, !is.na(start_station) & !is.na(end_station))
 
+# First of all, duration is in seconds; it will be easier to read in minutes:
+trips$duration = trips$duration / 60
+
 # OK, it seems like there's a crazy outlier in the duration column. Let's
-# say that if the duration is more than a day we cap it there.
+# say that if the duration is more than a day we remove it.
 hist(trips$duration, breaks=100)
-trips$duration[trips$duration > 24*60*60] = 24*60*60
+trips = subset(trips, duration <= 24*60)
 hist(trips$duration, breaks=100)
 
 # Our start_date and end_date variables are strings. We really want them to be
@@ -45,6 +48,8 @@ trips$end_date = strptime(trips$end_date, "%Y-%m-%d %H:%M:%S")
 
 # We're going to be doing a lot of tapply, so let's make sure we remember how to
 # use it. [[Pretty picture of tapply() works, in slides]]
+
+# ** New question: what is the average duration of a trip by subscription type?
 
 # How many trips by each subscription type are there in the dataset?
 names(trips)  # Remember variable names
@@ -233,8 +238,8 @@ table(station.info$day2)
 # From trips, create a data frame called bicycle.info, where each row corresponds
 # to one bicycle. Include the following variables in your new data frame:
 #   - bike.nr: The bicycle number of this bicycle
-#   - mean.duration: Average trip duration (seconds)
-#   - sd.duration: Standard deviation of trip duration (seconds)
+#   - mean.duration: Average trip duration (minutes)
+#   - sd.duration: Standard deviation of trip duration (minutes)
 #   - num.trips: Number of trips taken by the bicycle (Hint: ?nrow)
 
 # Remember that you can start by creating just a few of these variables. If you
@@ -348,21 +353,10 @@ trips$distance = distance
 
 # Hubway charges a variable amount for a bike ride, depending on the duration of
 # the ride. They have the following rates for casual users:
-# 0-1799 sec -- $0
-# 1800-3599 sec -- $2
-# 3600-5399 sec -- $6
-# 5400-7199 sec -- $14
-# 7200-8999 sec -- $22
-# 9000-10799 sec -- $30
-# 10800-12599 sec -- $38
-# 12600-14399 sec -- $46
-# 14400-16199 sec -- $54
-# 16200-17999 sec -- $62
-# 18000-19799 sec -- $70
-# 19800-21599 sec -- $78
-# 21600-23399 sec -- $86
-# 23400-25199 sec -- $94
-# 25200+ sec -- $100
+# [0, 30) minutes -- $0
+# [30, 60) minutes -- $2
+# [60, 420) minutes -- $[8*floor(minutes/30)-10]
+# 420+ minutes -- $100
 # The rate for registered users is 75% that of casual users (e.g. registered
 # users has a max fee of $75). Use the apply() function to compute the fee
 # associated with each trip. The fee depends on both the duration of the trip
@@ -383,41 +377,21 @@ get.fee = function(x) {
 	} else {
 		multiplier = 1
 	}
-	if (duration <= 1799) {
+	if (duration < 30) {
 		return(0)
-	} else if (duration <= 3599) {
+	} else if (duration < 60) {
 		return(2*multiplier)
-	} else if (duration <= 5399) {
-		return(6*multiplier)
-	} else if (duration <= 7199) {
-		return(14*multiplier)
-	} else if (duration <= 8999) {
-		return(22*multiplier)
-	} else if (duration <= 10799) {
-		return(30*multiplier)
-	} else if (duration <= 12599) {
-		return(38*multiplier)
-	} else if (duration <= 14399) {
-		return(46*multiplier)
-	} else if (duration <= 16199) {
-		return(54*multiplier)
-	} else if (duration <= 17999) {
-		return(62*multiplier)
-	} else if (duration <= 19799) {
-		return(70*multiplier)
-	} else if (duration <= 21599) {
-		return(78*multiplier)
-	} else if (duration <= 23399) {
-		return(86*multiplier)
-	} else if (duration <= 25199) {
-		return(94*multiplier)
+	} else if (duration < 420) {
+		return((8*floor(duration/30)-10)*multiplier)
 	} else {
 		return(100*multiplier)
 	}
 }
 
 fee.info = trips[,c("is.registered", "duration")]
+fee.info[1,]
 get.fee(fee.info[1,])
+fee.info[36,]
 get.fee(fee.info[36,])
 fee = apply(fee.info, 1, get.fee)
 
