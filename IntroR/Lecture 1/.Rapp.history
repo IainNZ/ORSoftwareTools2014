@@ -130,3 +130,81 @@ tapply(iris$Petal.Length, IrisHCGroups, mean)
 IrisKMC = kmeans(iris[1:4], centers = 3, iter.max = 100)
 IrisKMCGroups = IrisKMC$cluster
 table(iris$Species, IrisKMCGroups)
+?seq
+seq(from = 2, to = 20, by = 2)
+seq(1:10)
+evens <- evens * 2
+evens <- seq(1:10)
+evens <- evens * 2
+evens
+hist(CEOcomp$Years, main = "Title", xlab = "x-axis")
+CEOcomp = read.csv(file = "CEOcomp.csv", header = TRUE)
+hist(CEOcomp$Years, main = "Title", xlab = "x-axis")
+bikes = read.csv("stations.csv")
+str(bikes)
+mean(bikes$lat)
+mean(bikes$lng)
+plot(bikes$lat, bikes$lng, xlab = "latitude", ylab = "longitude", main = "title")
+plot(bikes$lng, bikes$lat, xlab = "longitude", ylab = "latitude", main = "title")
+?round
+round(25.26, digits = 1)
+bikes$lng2 <- round(bikes$lng, digits = 2)
+bikes$lat2 <- round(bikes$lat, digits = 2)
+table(bikes$lng2, bikes$lat2)
+letters = read.csv("LettersBinary.csv")
+str(letters)
+split = sample.split(letters, SplitRatio = 0.6)
+split = sample.split(letters$Letter, SplitRatio = 0.6)
+library(caTools)
+split = sample.split(letters$Letter, SplitRatio = 0.6)
+?plot
+CEO.linReg <- lm(TotalCompensation ~ Years + ChangeStockPrice + ChangeCompanySales + MBA, data = CEOcomp)
+summary(CEO.linReg)
+CEO.linReg$coefficients
+CEO.linReg$residuals
+confint(CEO.linReg, level = 0.95)
+cor(CEOcomp$TotalCompensation, CEOcomp$Years)
+cor(CEOcomp)
+cor.test(CEOcomp$TotalCompensation, CEOcomp$Years)
+Titanic.logReg = glm(Survived ~ Class + Age + Sex, data = TitanicTrain, family = binomial)#
+summary(Titanic.logReg)#
+#
+# Compute predicted probabilities on training data#
+Titanic.logPred = predict(Titanic.logReg, type = "response")#
+#
+# Build a classification table to check accuracy on #
+# training set. Note that due to randomness of split, #
+# classification matrices may be slightly different#
+table(TitanicTrain$Survived, round(Titanic.logPred))
+TitanicPassengers = read.csv("TitanicPassengers.csv")#
+str(TitanicPassengers)#
+#
+# We first need to install a package to help#
+# us split the data.  Note that this only#
+# needs to be done once per machine!#
+install.packages("caTools")#
+#
+# Now load the library.  This needs to be done#
+# every time you wish to use the library.#
+library(caTools)#
+# Now split the dataset into training and testing#
+split <- sample.split(TitanicPassengers$Survived, SplitRatio = 0.6)#
+TitanicTrain <- TitanicPassengers[split, 1:5]#
+TitanicTest <- TitanicPassengers[!split, 1:5]#
+#
+##########################
+## LOGISTIC REGRESSION ###
+##########################
+#
+# Run a logistic regression using general linear model#
+Titanic.logReg = glm(Survived ~ Class + Age + Sex, data = TitanicTrain, family = binomial)#
+summary(Titanic.logReg)#
+#
+# Compute predicted probabilities on training data#
+Titanic.logPred = predict(Titanic.logReg, type = "response")#
+#
+# Build a classification table to check accuracy on #
+# training set. Note that due to randomness of split, #
+# classification matrices may be slightly different#
+table(TitanicTrain$Survived, round(Titanic.logPred))
+table(CEOcomp$Years, CEOcomp$MBA)
