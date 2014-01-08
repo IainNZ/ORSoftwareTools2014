@@ -6,11 +6,11 @@ In the second lesson (Intermediate R), we're going to be using the Hubway datase
 
 For this session's assignment, please complete the following in R, and submit the results of the starred steps on Stellar. You can find examples of each of the commands needed for this assignment in file 1-1.R from the Intro R week. 
 
-1) Change your working directory to the Hubway directory in the git repository. (This folder contains files stations.csv and trips.csv)
-2) Using the read.csv() function, load stations.csv into a data frame called stations and trips.csv into a data frame called trips. 
-*3) Using the str() function, how many stations are there in the whole dataset? How many variables are there in the stations data frame?
-*4) Using the str() function, how many trips are there in the whole dataset? How many variables are there in the trips data frame?
-*5) Using the table() function, how many of the trips were labeled as being taken by a male? Taken by a female? Have the gender of the traveler missing?  [[In 1-1.R, we passed two arguments to table(); here, try running the command with just a single argument that you want to summarize.]]
+1. Change your working directory to the Hubway directory in the git repository. (This folder contains files stations.csv and trips.csv)
+2. Using the read.csv() function, load stations.csv into a data frame called stations and trips.csv into a data frame called trips. 
+3. Using the str() function, how many stations are there in the whole dataset? How many variables are there in the stations data frame?
+4. Using the str() function, how many trips are there in the whole dataset? How many variables are there in the trips data frame?
+5. Using the table() function, how many of the trips were labeled as being taken by a male? Taken by a female? Have the gender of the traveler missing?  [[In 1-1.R, we passed two arguments to table(); here, try running the command with just a single argument that you want to summarize.]]
 
 ## Brief overview of the lesson
 
