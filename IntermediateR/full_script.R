@@ -149,16 +149,16 @@ tapply(trips$start_date$wday, trips$start_station, get.top.2)
 #########################
 # Assignment 2 (Section 3)
 
-# Hubway charges a fee for any trip longer than 30 minutes. Use tapply() to
-# compute the proportion of trips from each start location that are longer than
-# 30 minutes (1800 seconds).
+# Hubway charges a fee for any trip of 30 or more minutes. Use tapply() to
+# compute the proportion of trips from each start location that are 30 or more
+# minutes.
 prop.above.30 = function(x) {
-	return(mean(x > 1800))
+	return(mean(x >= 30))
 }
 tapply(trips$duration, trips$start_station, prop.above.30)
 
 # OR:
-tapply(trips$duration, trips$start_station, function(x) mean(x > 1800))
+tapply(trips$duration, trips$start_station, function(x) mean(x > 30))
 
 # Bonus: compute the most common subscription type (Registered/Casual/Tie)
 # between every pair of start/end locations between which there has been at
