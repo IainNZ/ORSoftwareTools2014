@@ -22,3 +22,6 @@ In the intermediate R week, we'll go over data reshaping, one of the common sour
 - The split-apply-combine paradigm [example task: reshape the trips data frame -- where each row represents a single trip -- into a data frame where the rows represent bicycles and the columns represent summary information about all the trips made using that bicycle]
 - Merging datasets [example task: link the information in stations.csv to the information in trips.csv using the unique identifier for each station, which appears in trips.csv in the start_station and end_station variables and in stations.csv as the id variable.]
 - Applying a function to each row (or column) of a data frame [example task: compute the fee charged by Hubway for each trip in trips.csv using a formula that takes into account the duration of the trip and whether the trip was taken by a registered or casual user.]
+
+## Download files for class
+In addition to trips.csv and stations.csv, please also download assignment2_start.R, assignment3_start.R, and assignment4_start.R from the IntermediateR folder.
