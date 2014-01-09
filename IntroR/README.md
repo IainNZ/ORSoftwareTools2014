@@ -19,7 +19,7 @@ Copy and paste the following lines of code to the R Console:
 	summary(lm_test)
 
 
-Press enter and copy the output to a .txt file.  Submit the file to Stellar.
+Press Enter and copy the output to a .txt file.  Submit the file to Stellar.
 
 The first two lines of your output should look like:
 
