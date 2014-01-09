@@ -36,6 +36,9 @@ for i = 2:length(alllines)
 end
 
 # Check out the values
+# There is also a readcsv function that will create a table from a
+# file all at once - look in the documentation for more. Julia also
+# has a DataFrames.jl package that can handle missing values.
 
 # Now how can we do this in a more medium data friendly way, e.g.
 # the file is 20 GB - we can't load that into memory all at once!
@@ -49,7 +52,7 @@ end
 station_fp = open("../Hubway/stations.csv", "r")
 for line in eachline(station_fp)
   # Split it up
-  spl = split(chomp(alllines[i]), ",")
+  spl = split(chomp(line), ",")
   # Check it isn't the header!
   if spl[1] == "id"
     println("Header")
