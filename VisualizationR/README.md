@@ -4,28 +4,25 @@
 
 Please run the following commands in an R console:
 
-install.packages("ggplot2")
-
-install.packages("maps")
-
-install.packages("ggmap")
+1. install.packages("ggplot2")
+2. install.packages("maps")
+3. install.packages("ggmap")
+4. install.packages("mapproj")
 
 ## Assignment
 
-Run the following code and save the output plots. Submit a document with the plots on Stellar.
+Run the following code and save the output the 2 plots. Submit a document with the both plots on Stellar.
 
-library(ggplot2)
+1. library(ggplot2)
+2. ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
+3. library(maps)
+4. france = map_data("france")
+5. ggplot(france, aes(x = long, y = lat, group = group)) + geom_polygon()
 
-ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
+Save the plot to a file
 
-library(maps)
+1. library(ggmap)
+2. MIT = get_map(location = "Massachusetts Institute of Technology", zoom = 15)
+3. ggmap(MIT)
 
-france = map_data("france")
-
-ggplot(france, aes(x = long, y = lat, group = group)) + geom_polygon()
-
-library(ggmap)
-
-MIT = get_map(location = "Massachusetts Institute of Technology", zoom = 15)
-
-ggmap(MIT)
+Save this new plot to a file.
