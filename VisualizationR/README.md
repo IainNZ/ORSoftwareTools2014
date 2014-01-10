@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-This module builds on the Intro R and Intermediate R classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Intro R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, and the split-apply-combine framework taught in Intermediate R. Please review these concepts before class on Tuesday.
+This module builds on the Intro R and Intermediate R classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Intro R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, the split-apply-combine framework, and creating your own functions. These were taught in Intermediate R. Please review all these concepts before class on Tuesday, especially if you are new to R.
 
 ## Installation Instructions
 
