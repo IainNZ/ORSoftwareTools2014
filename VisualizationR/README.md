@@ -1,5 +1,9 @@
 # Visualization in R
 
+## Prerequisites
+
+This module builds on the Intro R and Intermediate R classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Intro R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, and the split-apply-combine framework taught in Intermediate R. Please review these concepts before class on Tuesday.
+
 ## Installation Instructions
 
 Please run the following commands in an R console:
@@ -13,7 +17,7 @@ install.packages("mapproj")
 
 ## Assignment
 
-Run the following code and save the output the 3 plots. Submit a document with the three plots on Stellar.
+Run the following code and save the 3 plots that are produced. Submit a document with the three plots on Stellar.
 
 ```
 library(ggplot2)
