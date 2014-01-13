@@ -54,11 +54,17 @@ julia> Pkg.add("JuMP")
 
 ## Assignment
 
-Download and run the Julia script ``assignment.jl``. The output of the script is a list of seven names, with the heading 
+Download and run the Julia script ``assignment.jl``. You can do this by opening a terminal window, navigating to the directory of ``assignment.jl``, and typing in
+```
+julia assignment.jl
+```
+The output of the script is a list of seven names, with the heading 
 ```
 *** PARTY INVITATION LIST ***
 ```
-Copy and paste these names into the assignment submission text box and submit them to complete the assignment.
+Copy and paste these names into the assignment submission text box and submit them to complete the assignment!
+
+If you encounter any problems running the script, please let us know as soon as possible.
 
 
 ## An annoyance with Mac OSX
