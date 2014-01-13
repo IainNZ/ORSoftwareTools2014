@@ -141,7 +141,6 @@ reduce_results = apply_reducer(shuffle_results)
 
 # Save the results to file. You could load the CSV in R
 # and plot a heatmap!
-# I've put a println here for testing purposes
 out_fp = open("output.csv", "w")
 println(out_fp, "start, end, count, mu, sd")
 for result in reduce_results
