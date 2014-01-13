@@ -48,8 +48,18 @@ julia> Pkg.add("JuMP")
 
 ### Data and Exercise scripts!
 
+```
+>
+```
 
 ## Assignment
+
+Download and run the Julia script ``assignment.jl``. The output of the script is a list of seven names, with the heading 
+```
+*** PARTY INVITATION LIST ***
+```
+Copy and paste these names into the assignment submission text box and submit them to complete the assignment.
+
 
 ## An annoyance with Mac OSX
 As of 2013, Gurobi ha a peculiarity whereby the only version of python it would work with was the version of python that shipped with Mac OSX.  (You can read more about it here: https://groups.google.com/forum/#!topic/gurobi/cHHX5RjsRfU ) Note that this is contrast to whatever the documentation says about python setup.py.  Since then, some people have found some workarounds, which are as of yet, untested.
