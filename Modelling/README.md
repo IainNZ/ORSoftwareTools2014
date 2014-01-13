@@ -18,27 +18,31 @@ If you have an older version of Gurobi (>= 5.5) on your computer, that should be
 
 ### Install Julia
 #### Mac OS X
-1.  We will use the v0.2-rc2 binaries provided http://julialang.org/downloads/.  If you are running OS-X Lion, Mountain Lion, or Mavericks, choose the 10.7+64-bit version.  Snow Leopard users, the 10.6 64-bit version is for you.
-2. Once downloaded, open the .dmg disk image in Finder and then drag Julia-0.2.0-rc2.app to your Applications folder.
-3. Click on the Julia-0.2.0-rc2.app file to open it. If it does not open, you may need to change your applications permissions:
-Open System Preferences.app
-Go to Security and Privacy
-Click "Allow Anyway" next to Julia-0.2.0-rc2.app
+1.  We will use the v0.2 binaries provided on the [Julia download page](http://julialang.org/downloads/).  If you are running OS-X Lion, Mountain Lion, or Mavericks, choose the 10.7+64-bit version.  Snow Leopard users, the 10.6 64-bit version is for you.
+2. Once downloaded, open the .dmg disk image in Finder and then drag Julia-0.2.app to your Applications folder.
+3. Click on the Julia-0.2.app file to open it. If it does not open, you may need to change your applications permissions:
+ * Open System Preferences.app
+ * Go to Security and Privacy
+ * Click "Allow Anyway" next to Julia-0.2.app
 4. Open the Terminal.app add the Julia executable to your path:
-Run nano ~/.bash_profile and add export PATH=$PATH:"/Applications/Julia-0.2.0-rc2.app/Contents/Resources/julia/bin" to the bottom of the file.
-You can now run Julia by typing julia at the command line. To run a Julia file, type julia path/to/file.
+ * Run ``nano ~/.bash_profile`` and add export ``PATH=$PATH:"/Applications/Julia-0.2.app/Contents/Resources/julia/bin"`` to the bottom of the file.
+ * You can now run Julia by typing ``julia`` at the command line. To run a Julia file, type ``julia path/to/file``.
 
 ### Windows 
 
-You may install the Julia 0.2-RC binaries from http://julialang.org/downloads/.  
+1. You can install the Julia 0.2 binaries from the [Julia download page](http://julialang.org/downloads/) - you should use the 64-bit version.
+2. Extract the files to wherever you want.
+3. Open a Command Window and navigate to the the folder you made. You should now be able to run Julia by typing ``julia`` for interactive mode or ``julia myfile.jl`` to run a script.
 
 ### Linux
-Follow the instructions here: http://julialang.org/downloads/ depending on your particular flavor of Linux.  
+
+Follow the instructions here [Julia download page](http://julialang.org/downloads/)  depending on your particular flavor of Linux.  
 
 ### Install JuMP
+
 Installing JuMP is easy, use the Julia package manager: 
 
-```
+```jl
 julia> Pkg.add("JuMP")
 ```
 
