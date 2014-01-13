@@ -3,9 +3,8 @@
 # Software Tools for Operations Research
 # IAP 2014
 #############################################################################
-# MR_Trips
 # A "map-reduce" approach to analyzing the Hubway trip data.
-# This is the "solution" to the exercise at the end of the "Big Data" class.
+# This is the worked example at end of the class.
 #############################################################################
 
 # CONTROLLER
