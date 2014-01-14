@@ -71,7 +71,9 @@ Please download the following scripts:
 8.  [Ex7_NRM_SimulateControl.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex7_NRM_SimulateControl.jl)
 9.  [Ex7_NRM_SimulateControl_test.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex7_NRM_SimulateControl_test.jl)
 
-All of the scripts that do not end with the "test" suffix are partially completed scripts that we will be filling in as we go through the exercises. The scripts with the "test" suffix are to test some of our later scripts (which only contain function definitions). Feel free to have a look through these ahead of the class on Thursday. As we go through the exercises, the solution to each exercise will be uploaded to this repository.
+All of the scripts that do not end with the "test" suffix are partially completed scripts that we will be filling in as we go through the exercises. The scripts with the "test" suffix are to test some of our later scripts (which only contain function definitions). Feel free to have a look through these ahead of the class on Thursday. 
+
+There are also solution scripts available, which have the suffix "complete". 
 
 ## Assignment
 
