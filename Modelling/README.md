@@ -59,10 +59,19 @@ julia> Pkg.add("JuMP")
 ```
 
 ### Data and Exercise scripts!
+Please download the following scripts:
 
-```
->
-```
+1.  [Ex2_FacilityLoc.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex2_FacilityLoc.jl)
+2.  [Ex3_FacilityLocCutting.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex3_FacilityLocCutting.jl)
+3.  [Ex4_NRM.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex4_NRM.jl)
+4.  [Ex5_NRM_Function.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex5_NRM_Function.jl)
+5.  [Ex5_NRM_Function_test.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex5_NRM_Function_test.jl)
+6.  [Ex6_NRM_DualFunction.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex6_NRM_DualFunction.jl)
+7.  [Ex6_NRM_DualFunction_test.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex6_NRM_DualFunction_test.jl)
+8.  [Ex7_NRM_SimulateControl.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex7_NRM_SimulateControl.jl)
+9.  [Ex7_NRM_SimulateControl_test.jl](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling/Ex7_NRM_SimulateControl_test.jl)
+
+All of the scripts that do not end with the "test" suffix are partially completed scripts that we will be filling in as we go through the exercises. The scripts with the "test" suffix are to test some of our later scripts (which only contain function definitions). Feel free to have a look through these ahead of the class on Thursday. As we go through the exercises, the solution to each exercise will be uploaded to this repository.
 
 ## Assignment
 
