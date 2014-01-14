@@ -4,6 +4,14 @@
 
 If you find any errors in these instructions, please contact the course instructors so we can update them for everyone.
 
+### If you already have everything installed from JuMP class last year
+
+There have been updates to packages since last year's class, so at the least you will need to open Julia and run ``Pkg.update()`` to update them.
+
+There have been updates to Julia and Julia Studio as well, so you may want to uninstall/remove them and install the newer, more stable versions.
+
+Most of the issues in the last class were with Julia Studio so we are no longer advocating its use until it improves a bit. It probably makes things a bit easier on Windows if you don't know how to change your PATH.
+
 ### Install Gurobi 5.6.0
 If you have an older version of Gurobi (>= 5.5) on your computer, that should be fine.  Some of the features we will use later in the course requier a fairly new version of Gurobi.  We will be using the 64bit version of Julia, so make sure that you have the 64 bit version of Gurobi intalled.  If you need a new version:
 
@@ -33,16 +41,19 @@ If you have an older version of Gurobi (>= 5.5) on your computer, that should be
 1. You can install the Julia 0.2 binaries from the [Julia download page](http://julialang.org/downloads/) - you should use the 64-bit version.
 2. Extract the files to wherever you want.
 3. Open a Command Window and navigate to the the folder you made. You should now be able to run Julia by typing ``julia`` for interactive mode or ``julia myfile.jl`` to run a script.
+4. If you want to be able to run Julia from any location on your computer, you will need to add the Julia folder to your PATH. PATH is a list of folders that Windows looks in when the program name you type in isn't in the current folder. To see how to change your PATH, look at [this link](http://www.computerhope.com/issues/ch000549.htm). Your PATH probably looks like ``"C:/RandomFolder/;c:/somestuff/blah/"`` right now. Say you put Julia in ``C:/Julia02/`` - you should add this to the end of your PATH so it will look like ``"C:/RandomFolder/;c:/somestuff/blah/;C:/Julia02"``. Note the ``;`` used to separate the folders.
+
 
 ### Linux
 
 Follow the instructions here [Julia download page](http://julialang.org/downloads/)  depending on your particular flavor of Linux.  
 
-### Install JuMP
+### Install JuMP and the Gurobi interface
 
-Installing JuMP is easy, use the Julia package manager: 
+Installing these is easy, use the Julia package manager: 
 
 ```jl
+julia> Pkg.add("Gurobi")
 julia> Pkg.add("JuMP")
 ```
 
