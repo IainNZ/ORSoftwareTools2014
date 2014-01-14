@@ -33,7 +33,8 @@ If you have an older version of Gurobi (>= 5.5) on your computer, that should be
  * Go to Security and Privacy
  * Click "Allow Anyway" next to Julia-0.2.app
 4. Open the Terminal.app add the Julia executable to your path:
- * Run ``nano ~/.bash_profile`` and add export ``PATH=$PATH:"/Applications/Julia-0.2.app/Contents/Resources/julia/bin"`` to the bottom of the file.
+ * Run ``echo PATH=\$PATH:\"/Applications/Julia-0.2.0.app/Contents/Resources/julia/bin\" >> ~/.bash_profile``.
+
  * You can now run Julia by typing ``julia`` at the command line. To run a Julia file, type ``julia path/to/file``.
 
 ### Windows 
