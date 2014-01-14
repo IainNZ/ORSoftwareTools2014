@@ -7,7 +7,7 @@
 Pkg.add("Distributions")
 
 using Distributions
-using Ex6_NRM_DualFunction_complete
+using Ex6_NRM_DualFunction
 
 
 # simulateBidPriceControl
