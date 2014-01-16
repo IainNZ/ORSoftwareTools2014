@@ -6,19 +6,15 @@
 # Record memory usage here:
 
 # 2. Load trips.csv all at once
-# Use the readlines command we used before
+# Use the readlines command we used before.
 # Record memory usage here:
 
-# 3. Use a for loop to calculate the average duration of trips
-# We can modify the code we had for stations to do this
-# Think about how we can calculate an average on-the-fly - what
-# is the definition of sample average? What do we need to
-# accumulate as we go?
+# 3. Close Julia, open it again
 # Record memory usage here:
 
-# 4. Close Julia, open it again
-# Record memory usage here:
-
-# 5. Use eachline...
-# If you are up to here, you don't need a hint!
+# 4. Use eachline with a for loop to calculate the average duration of trips.
+# We can modify the code we had for stations to do this.
+# Think about how we can calculate an average on-the-fly - what is the
+# definition of sample average?
+# Hint: duration is the second field of the trips.csv dataset
 # Record memory usage here:

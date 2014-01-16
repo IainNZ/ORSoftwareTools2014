@@ -22,7 +22,15 @@ for line in # ???
     continue
   end
 
+  # trips.csv layout:
+  # duration is the second field/column 
+  # start_station is the fourth field/column
+  # end_station is the sixth field/column
   # ???
+  # Just pull the stations straight out of the file
+  # Don't try and turn them into numbers
+  start_st = # ???
+  end_st = # ???
 
   if # ??? some condition on dur 
     println(reduced_fp, "$start_st, $end_st")

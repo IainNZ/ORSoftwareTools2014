@@ -71,9 +71,9 @@ function apply_shuffle(map_results)
     # Check if key is already in Dict
     key, value = keyval
     if !(key in keys(results))
-      results[key] = [value]
+      results[key] = [float(value)]
     else
-      push!(results[key], value)
+      push!(results[key], float(value))
     end
   end
   println("Shuffle time: $(toq()) seconds")
