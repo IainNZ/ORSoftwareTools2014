@@ -12,8 +12,19 @@ using HttpServer
 using SQLite
 
 # Create, load the database
-SQLite.connect("stations.sqlite")
+SQLite.connect("hubway.sqlite")
 
+function getDistMatrix(latlngs)
+    N = size(latlngs, 1)
+    mat = zeros(N, N)
+    for i = 1:N
+        for j = 1:N
+            mat[i,j] = ((latlngs[i,1] - latlngs[j,1])^2 +
+                        (latlngs[i,2] - latlngs[j,2])^2)^0.5
+        end
+    end
+    return mat
+end
 
 function nameservice(req::Request, res::Response)
     println(req.resource)
@@ -39,28 +50,43 @@ function nameservice(req::Request, res::Response)
         lngL = 0.0
         lngR = 0.0
         try
-          latL = float(req_split[3])
-          latR = float(req_split[4])
-          lngL = float(req_split[5])
-          lngR = float(req_split[6])
+            latL = float(req_split[3])
+            latR = float(req_split[4])
+            lngL = float(req_split[5])
+            lngR = float(req_split[6])
         catch
             return Response(400, "Error: couldn't parse arguments!")
         end
 
         # Build SQL query
-        sql_query = "SELECT name FROM stations WHERE ( lat >= $latL AND lat <= $latR ) AND ( lng >= $lngL AND lng <= $lngR )"
+        sql_query = "SELECT name, lat, lng FROM stations WHERE ( lat >= $latL AND lat <= $latR ) AND ( lng >= $lngL AND lng <= $lngR )"
 
         # Run the query
         results = query(sql_query)
         println(results)
 
         # Return results
-        if size(results, 1) == 0
-            return Response("No results")
+        N = size(results, 1)
+        if N == 0
+            return Response(400, "No results")
         else
-            ret_str = "$(size(results,1)) results:"
-            for i in 1:size(results, 1)
-                ret_str = string(ret_str, "<br>$(results[i,:name])")
+            # If we want to just return the stations
+            #ret_str = "$(size(results,1)) results:"
+            #for i in 1:size(results, 1)
+            #    ret_str = string(ret_str, "<br>$(results[i,:name])")
+            #end
+            #return Response(ret_str)
+            latlngs = zeros(N, 2)
+            for i in 1:N
+                latlngs[i,1] = float(results[i,:lat])
+                latlngs[i,2] = float(results[i,:lng])
+            end
+            mat = getDistMatrix(latlngs)
+            ret_str = ""
+            for i = 1:N
+                for j = 1:N
+                    ret_str = string(ret_str, "$i $j $(mat[i,j])<br>")
+                end
             end
             return Response(ret_str)
         end
