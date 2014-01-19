@@ -1,6 +1,6 @@
 using SQLite
 
-db = SQLite.connect("stations.sqlite")
+db = SQLite.connect("hubway.sqlite")
 result = query("SELECT * FROM stations WHERE name LIKE '%MIT%'")
 println("MIT Stations")
 for i in 1:size(result,1)
