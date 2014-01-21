@@ -7,7 +7,7 @@ You will need the ``GZip`` julia package.
 
 ## Assignment **DRAFT, do not submit**
 
-We've implemented a basic **[gradient descent]]** algorithm in **[gradient.jl]**. The code prints interation data, execution time, and then a *profile* of the execution time. Your output should look like:
+We've implemented a basic **[gradient descent]** algorithm in **[gradient.jl]**. The code prints interation data, execution time, and then a *profile* of the execution time. Your output should look like:
 
 ```
 ...
