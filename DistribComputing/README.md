@@ -30,6 +30,8 @@ elapsed time: 31.756677491 seconds (8232411136 bytes allocated)
 
 **Challenge**: Try to make the code run twice as fast. Some possible approaches include reusing calculations and avoiding temporary objects. Feel free to restructure the code or implement your own version. Submit your new solution and execution time. Don't spend too much time on this. **[Suggested reading]**
 
+If you would like to follow along with the parallel computing example in class, run the ``data.R`` script in this directory. It will take a few minutes to run and will generate a ``tripsbydate`` subdirectory with a large number of files called, for example ``2011-10-12.csv.gz``. No submission is necessary.
+
 [gradient.jl]: https://github.com/IainNZ/ORSoftwareTools2014/blob/master/DistribComputing/performance/gradient.jl
 [gradient descent]: http://en.wikipedia.org/wiki/Gradient_descent
 [suggested reading]: http://julialang.org/blog/2013/09/fast-numeric/
