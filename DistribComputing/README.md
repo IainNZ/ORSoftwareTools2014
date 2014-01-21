@@ -1,9 +1,11 @@
-# Distributed Computing
+# High-performance Computing
 
 ## Installation Instructions
 
-Please intall the following packages...
+We will use Julia and R.
+You will need the ``GZip`` julia package.
 
-## Assignment
+## Assignment **DRAFT, do not submit**
+
 
 Run the following code and submit the result on Stellar.
