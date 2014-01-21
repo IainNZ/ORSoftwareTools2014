@@ -40,7 +40,8 @@ dim = 100
 srand(10) # fix random seed
 R = rand(dim,dim)
 f, fgrad = genF(R'*R)
-gradDescent(x->0, x->[0.0], ones(1)) # first run to compile
-#@time gradDescent(f, fgrad, ones(dim))
+println("Test run:")
+gradDescent(x->0, x->[0.0], ones(1)) # run once to exclude compilation time
+
 @profile @time gradDescent(f, fgrad, ones(dim))
 Profile.print(format=:flat)
