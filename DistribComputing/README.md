@@ -3,9 +3,9 @@
 ## Installation Instructions
 
 We will use Julia and R.
-You will need the ``GZip`` julia package.
+You will need the ``GZip`` Julia package to run the parallel computing example.
 
-## Assignment **DRAFT, do not submit**
+## Assignment
 
 We've implemented a basic **[gradient descent]** algorithm in **[gradient.jl]**. The code prints iteration data, execution time, and then a *profile* of the execution time. Your output should look like:
 
