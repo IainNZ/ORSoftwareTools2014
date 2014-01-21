@@ -7,7 +7,7 @@ You will need the ``GZip`` julia package.
 
 ## Assignment **DRAFT, do not submit**
 
-We've implemented a basic **[gradient descent]** algorithm in **[gradient.jl]**. The code prints interation data, execution time, and then a *profile* of the execution time. Your output should look like:
+We've implemented a basic **[gradient descent]** algorithm in **[gradient.jl]**. The code prints iteration data, execution time, and then a *profile* of the execution time. Your output should look like:
 
 ```
 ...
@@ -26,7 +26,7 @@ elapsed time: 31.756677491 seconds (8232411136 bytes allocated)
  ...
 ```
 
-**Submit** the line starting with ``elapsed time``. The profiler in Julia works by taking a sample every millisecond and recoding which line of code is currently being executed. For example, the first line of the output means that in 5,656 of the samples (5.6 seconds), Julia was executing ``f`` at line 4 of gradient.jl. Which lines of code are dominating the execution time?
+**Submit** the line starting with ``elapsed time``. The profiler in Julia works by taking a sample every millisecond and recording which line of code is currently being executed. For example, the first line of the output means that in 5,656 of the samples (5.6 seconds), Julia was executing ``f`` at line 4 of gradient.jl. Which lines of code are dominating the execution time?
 
 **Challenge**: Try to make the code run twice as fast. Some possible approaches include reusing calculations and avoiding temporary objects. Feel free to restructure the code or implement your own version. Submit your new solution and execution time. Don't spend too much time on this. **[Suggested reading]**
 
