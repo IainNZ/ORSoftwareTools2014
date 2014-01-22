@@ -43,5 +43,10 @@ f, fgrad = genF(R'*R)
 println("Test run:")
 gradDescent(x->0, x->[0.0], ones(1)) # run once to exclude compilation time
 
-@profile @time gradDescent(f, fgrad, ones(dim))
-Profile.print(format=:flat)
+@unix_only begin
+	@profile @time gradDescent(f, fgrad, ones(dim))
+	Profile.print(format=:flat)
+end
+@windows_only begin
+	@time gradDescent(f, fgrad, ones(dim))
+end
