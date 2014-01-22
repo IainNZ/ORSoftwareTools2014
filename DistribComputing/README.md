@@ -25,6 +25,7 @@ elapsed time: 31.756677491 seconds (8232411136 bytes allocated)
  11640 ...performance/gradient.jl gradDescent                                22
  ...
 ```
+*Update:* Profiling functionality is not working on Windows. Using the most recent script, you will just see ``elapsed time``.
 
 **Submit** the line starting with ``elapsed time``. The profiler in Julia works by taking a sample every millisecond and recording which line of code is currently being executed. For example, the first line of the output means that in 5,656 of the samples (5.6 seconds), Julia was executing ``f`` at line 4 of gradient.jl. Which lines of code are dominating the execution time?
 
