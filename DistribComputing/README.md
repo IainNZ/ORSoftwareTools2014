@@ -4,7 +4,7 @@
 
 We will use Julia and R. Please run ``Pkg.update()`` in Julia to get recent updates to JuMP.
 
-You will need the ``GZip`` Julia package to run the parallel computing example (install with ``Pkg.add("GZip")``.
+You will need the ``GZip`` Julia package to run the parallel computing example (install with ``Pkg.add("GZip")``).
 
 ## Assignment
 
