@@ -2,6 +2,7 @@
 
 function genF(Q)
     function f_and_fgrad(x,grad_out)
+        # grad_out <- 1.0*Q*x + 0.0*grad_out
         BLAS.symv!('u',1.0,Q,x,0.0,grad_out)
         return (1/2)*dot(x,grad_out)
     end
