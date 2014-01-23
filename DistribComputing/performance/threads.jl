@@ -7,7 +7,6 @@ function solve(n)
 end
 
 solve(10) # throw away
-println("Matrix LU times")
 for t in [1,2,4,8]
     blas_set_num_threads(t)
     println("LU Factorization with $t threads:")
