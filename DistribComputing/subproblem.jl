@@ -1,6 +1,6 @@
 import GZip
 using JuMP
-using Clp
+#using Clp
 using Gurobi
 
 # converts a time "HH:MM:SS" into the number of seconds since midnight
@@ -77,7 +77,7 @@ function networkLP(S, directedCostMatrix, netFlowPerPeriod, totalBikes, stationC
 
     T = length(netFlowPerPeriod)
     #m = Model(solver=ClpSolver())
-    m = Model(solver=GurobiSolver(InfUnbdInfo=1,OutputFlag=0,Method=1))
+    m = Model(solver=GurobiSolver(Threads=1,InfUnbdInfo=1,OutputFlag=0,Method=1))
     # flow from "source" node into each station
     @defVar(m, fsource[S] >= 0)
     # flow from last exit nodes into "sink"
@@ -173,7 +173,7 @@ function networkLP(S, directedCostMatrix, netFlowPerPeriod, totalBikes, stationC
         negval = val
         # compute ray value
         val = dot(m.linconstrDuals,[JuMP.rhs(c) for c in m.linconstr])
-        println("VAL: $val")
+        #println("VAL: $val")
         @assert val > 1e-5
         val += negval
     end
