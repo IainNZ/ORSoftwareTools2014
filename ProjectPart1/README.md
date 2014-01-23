@@ -6,6 +6,8 @@ Lectures notes available via [Google Drive](https://docs.google.com/presentation
 
 ## Installation Instructions
 
+### NOTE: These instructions aren't quite ready for Windows users. Please wait for a few days, e.g. Sunday night.
+
 You have already installed Julia for the previous classes. You should now add the following packages:
 
 * HttpServer
