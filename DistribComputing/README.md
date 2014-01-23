@@ -1,5 +1,7 @@
 # ~~Distributed~~ High-performance Computing
 
+## [Slides](https://docs.google.com/presentation/d/1Qamkuq7xH4dV0J9bOy-MAFnGLIiZMKH229A9o6Ux_58/edit?usp=sharing)
+
 ## Installation Instructions
 
 We will use Julia and R. Please run ``Pkg.update()`` in Julia to get recent updates to JuMP.
