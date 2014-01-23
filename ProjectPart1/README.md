@@ -15,6 +15,17 @@ You have already installed Julia for the previous classes. You should now add th
 
 You can do this with the `Pkg.add()` command.
 
+### Note for Mac users
+HttpServer requires a C compiler (clang) to install properly. To check if this is available on your machine, at the Terminal run 
+```
+>> clang
+```
+If this returns ``clang: error: no input files``, then you have the necessary compiler. Otherwise, you need to install the Xcode command line tools. On newer versions of OSX, this can be done by running 
+```
+>> xcode-select --install
+```
+and following the prompts. On older versions, you may need to install the entire Xcode application, which can be found [here](https://developer.apple.com/xcode/). Contact [huchette@mit.edu](huchette@mit.edu) if you need help with this. 
+
 ## Assignment
 
 You need to test each package individually.
