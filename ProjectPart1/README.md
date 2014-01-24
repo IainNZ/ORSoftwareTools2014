@@ -6,9 +6,7 @@ Lectures notes available via [Google Drive](https://docs.google.com/presentation
 
 ## Installation Instructions
 
-### NOTE: These instructions aren't quite ready for Windows users. Please wait for a few days, e.g. Sunday night.
-
-You have already installed Julia for the previous classes. You should now add the following packages:
+You have already installed Julia for the previous classes. First, update your package database with `Pkg.update()`, then add the following packages:
 
 * HttpServer
 * SQLite
@@ -32,7 +30,7 @@ You need to test each package individually.
 
 1. We will turn the stations.csv Hubway data into a SQLite database. Run `create_db.jl` to do this.
 2. Next we will run `test_db.jl`. Please submit the output of this file.
-3. Now run `test_http.jl`. You should get a message like "Listening on 8000..."
+3. Now run `test_http.jl`. You should get a message like "Listening on 8000..." (Windows users: click allow if a firewall diaglog pops up.)
 4. Open a webbrowser and go to [http://localhost:8000/nameservice/yourname](http://localhost:8000/nameservice/yourname). Submit the text you see.
 
 Please combine both submissions together!
