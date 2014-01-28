@@ -12,9 +12,6 @@
 using HttpServer
 using SQLite
 
-# Provides the type FileResponse
-using HttpCommon
-
 include("tspSolver.jl")
 
 
@@ -72,9 +69,15 @@ function tspservice(req::Request, res::Response)
             mat = getDistMatrix(latlngs)
             (optDist,tour) = solveTsp(mat)
             println("Optimal tour: ", optDist/1000.0,"km")
-            plotTour(tour,latlngs,"tour.png")
-            return FileResponse("tour.png")
+            ret_str = "$(N) results, distance: $(optDist)"
+            ret_str = string(ret_str,"<br>index, station name, lat, lng")
+            for i in 1:N
+                station = tour[i]
+                ret_str = string(ret_str, "<br>$(i), $(results[station,:name]), $(results[station,:lat]), $(results[station,:lng])")
+            end
+            return Response(ret_str)
         end
+
     else
         # User requested something that we don't do!
         # Return 404 NOT FOUND
