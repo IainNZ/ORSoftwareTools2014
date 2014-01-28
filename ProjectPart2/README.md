@@ -53,6 +53,6 @@ Your `tsp_service_winston.jl` will produce the 57km tour of the hubway stations 
 
 ![Alt text](meta/final-tour.png "Final output for tsp_service_winston.jl")
 
-You can also solve some of the easier problems from [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/)
+You can also solve some of the easier problems from [TSPLIB](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/), such as `d198` shown below.
 
 ![Alt text](solutions/winstonWorks/d198.png "d198 from TSPLIB")
