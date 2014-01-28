@@ -1,0 +1,39 @@
+/stationservice/42.3/42.4/-72.0/-71.0
+
+stationservice
+42.3
+42.4
+-72.0
+-71.0
+
+Stations in query: 95
+Optimize a model with 4655 rows, 9025 columns and 18050 nonzeros
+Presolve removed 4560 rows and 4560 columns
+Presolve time: 0.03s
+Presolved: 95 rows, 4465 columns, 8930 nonzeros
+Variable types: 0 continuous, 4465 integer (4465 binary)
+
+Root relaxation: objective 5.538800e+04, 147 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 55388.0000    0   12          - 55388.0000     -      -    0s
+H    0     0                    66014.000000 55388.0000  16.1%     -    0s
+     0     0 56901.0000    0   14 66014.0000 56901.0000  13.8%     -    0s
+     0     0 57084.1111    0   37 66014.0000 57084.1111  13.5%     -    0s
+     0     0 57105.6111    0   33 66014.0000 57105.6111  13.5%     -    0s
+     0     6 57105.6111    0   33 66014.0000 57105.6111  13.5%     -    0s
+*   13    17              10    57227.000000 57159.0000  0.12%   2.3    0s
+*   49     1               7    57218.000000 57216.0000  0.00%   3.9    0s
+
+Cutting planes:
+  Zero half: 7
+  Lazy constraints: 64
+
+Explored 50 nodes (381 simplex iterations) in 0.89 seconds
+Thread count was 4 (of 4 available processors)
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 5.721800000000e+04, best bound 5.721600000000e+04, gap 0.0035%
+Optimal tour: 57.218km

@@ -6,7 +6,7 @@ The lecture notes are a pdf in the github repository.
 
 ## Installation Instructions (Recommended)
 
-Please install the Winston package (see [GitHub](https://github.com/nolta/Winston.jl) and [these instructions](http://homerreid.dyndns.org/teaching/18.330/InstallingWinston.shtml))/
+Please install the Winston package `Pkg.add("Winston")` (see [GitHub](https://github.com/nolta/Winston.jl) and [these instructions](http://homerreid.dyndns.org/teaching/18.330/InstallingWinston.shtml)).
 
 Winston is a graphics package for Julia.  If you are unable to install
 Winston, there is an alternate (less cool) version of the project that uses text instead of graphics.
@@ -28,14 +28,20 @@ it is working.
 * Run `tsp_service_winston.jl`. You should get a message like "Listening on 8000..."
 * Open a browser and to go to http://localhost:8000/stationservice/42.3/42.4/-71.2/-71.0.  You should see a plot of the hubway stations on the x-y plane connected in a tour.  It should like this:
 
-![Alt text](init-tour.png "Initial output for tsp_service_winston.jl")
+![Alt text](meta/init-tour.png "Initial output for tsp_service_winston.jl")
 
 ### If you couldn't install Winston
 
 * Run `tsp_service_text.jl`. You should get a message like "Listening on 8000..."
-* Open a browser and to go to http://localhost:8000/stationservice/42.3/42.4/-71.2/-71.0 .  You should see a list of hubway station names.
+* Open a browser and to go to http://localhost:8000/stationservice/42.3/42.4/-71.2/-71.0.  You should see a list of hubway station names.
 
 
 ### Submission
 
 Some information will be printed out to the terminal when you make a webpage request.  Paste it into a text file and submit the results on Stellar.
+
+## When you are done
+
+Your `tsp_service_winston.jl` will produce the 57km tour of the hubway stations below!!!
+
+![Alt text](meta/final-tour.png "Final output for tsp_service_winston.jl")

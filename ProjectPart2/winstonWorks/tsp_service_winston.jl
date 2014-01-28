@@ -4,8 +4,9 @@
 # IAP 2014
 #############################################################################
 # StationService
-# A webservice that takes four lat-lon points and returns the names of all
-# stations inside that box.
+#
+# A webservice that takes four lat-lon points and returns an image of
+# the shortest tour visiting every station inside the box.
 #############################################################################
 
 using HttpServer
@@ -57,19 +58,12 @@ function tspservice(req::Request, res::Response)
 
         # Run the query
         results = query(sql_query)
-        println(results)
-
         # Return results
         N = size(results, 1)
-        if N == 0
-            return Response(400, "No results")
+        println("Stations in query: ", N)
+        if N < 3
+            return Response(400, string("Need at least 3 cities to form a tour, but query had: ",N))
         else
-            # If we want to just return the stations
-            #ret_str = "$(size(results,1)) results:"
-            #for i in 1:size(results, 1)
-            #    ret_str = string(ret_str, "<br>$(results[i,:name])")
-            #end
-            #return Response(ret_str)
             latlngs = zeros(N, 2)
             for i in 1:N
                 latlngs[i,1] = float(results[i,:lat])
@@ -77,9 +71,15 @@ function tspservice(req::Request, res::Response)
             end
             mat = getDistMatrix(latlngs)
             (optDist,tour) = solveTsp(mat)
-            println(optDist)
+            println("Optimal tour: ", optDist/1000.0,"km")
             plotTour(tour,latlngs,"tour.png")
             return FileResponse("tour.png")
+            # to instead get a text representation, use the code below.
+            # If we want to just return the stations
+            #ret_str = "$(size(results,1)) results:"
+            #for i in 1:size(results, 1)
+            #    ret_str = string(ret_str, "<br>$(results[i,:name])")
+            #end
             #ret_str = string(ret_str,tour)
             #return Response(ret_str)
         end
@@ -113,7 +113,5 @@ http = HttpHandler(tspservice)
 server = Server(http)
 run(server, 8000)
 
-# http://localhost:8000/stationservice/42.34/42.341/-71.11/-71.1
-# 2 results:
-# Colleges of the Fenway
-# Longwood Ave/Riverway
+# Go the url below to see all the stations in a single tour:
+# http://localhost:8000/stationservice/42.3/42.4/-71.2/-71.0

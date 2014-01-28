@@ -34,8 +34,8 @@ function solveTsp(distance)
     # ...
 
     #1. Objective
-    #Set the objective
-    #@setObjective(m,...
+    #Set the objective (fill in the ...)
+    #@setObjective(m,Min,sum{...,i=1:n , j=i+1:n})
 
     # 2. Account for extra variables
     # Make x_ij and x_ji be the same thing (undirectional)
@@ -61,7 +61,7 @@ function solveTsp(distance)
     #     components = connectedComponents(edgeVals)
     #     ...
     # end
-    # setlazycallback(m,cutset)
+    # setLazyCallback(m,cutset)
 end
 
 # Inputs:
