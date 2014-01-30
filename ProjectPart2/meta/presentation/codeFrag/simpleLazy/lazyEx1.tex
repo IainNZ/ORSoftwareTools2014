@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{m} \PY{o}{=} \PY{n}{Model}\PY{p}{(}\PY{n}{solver}\PY{o}{=}\PY{n}{GurobiSolver}\PY{p}{(}\PY{n}{LazyConstraints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+\PY{p}{@}\PY{n}{defVar}\PY{p}{(}\PY{n}{m}\PY{p}{,}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,}\PY{n}{Bin}\PY{p}{)}
+\PY{p}{@}\PY{n}{setObjective}\PY{p}{(}\PY{n}{m}\PY{p}{,}\PY{n}{Max}\PY{p}{,} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{x}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\PY{k}{function}\PY{n+nf}{ }\PY{n+nf}{lazy}\PY{p}{(}\PY{n}{cb}\PY{p}{)}
+    \PY{n}{xVal} \PY{o}{=} \PY{n}{getValue}\PY{p}{(}\PY{n}{x}\PY{p}{)}
+    \PY{k}{if} \PY{n}{xVal}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{xVal}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{\PYZgt{}} \PY{l+m+mi}{1} \PY{o}{+} \PY{l+m+mf}{1e\PYZhy{}4}
+        \PY{p}{@}\PY{n}{addLazyConstraint}\PY{p}{(}\PY{n}{cb}\PY{p}{,} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{+} \PY{n}{x}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]} \PY{o}{\PYZlt{}=} \PY{l+m+mi}{1}\PY{p}{)}
+    \PY{k}{end}
+\PY{k}{end}
+\PY{n}{setlazycallback}\PY{p}{(}\PY{n}{m}\PY{p}{,}\PY{n}{lazy}\PY{p}{)}
+\PY{n}{solve}\PY{p}{(}\PY{n}{m}\PY{p}{)}
+\end{Verbatim}
