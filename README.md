@@ -1,4 +1,6 @@
 # MIT 15.S60 2014
+# Branch for submission to journal
+
 ## Software Tools for Operations Research
 
 ### Class Summary
