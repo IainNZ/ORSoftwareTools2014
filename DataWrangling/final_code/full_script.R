@@ -1,5 +1,5 @@
 ##################################
-# Section 1: Load and explore data frame; some data cleaning
+# Section 2: Load and explore data frame; some data cleaning
 
 # First, load datasets. It's often more convenient to just keep strings as
 # strings, so we pass stringsAsFactors=FALSE.
@@ -16,13 +16,17 @@ summary(trips)
 # let's remove the rows that are missing this information.
 trips = subset(trips, !is.na(start_station) & !is.na(end_station))
 
+# We can check the number of observations in the new data frame with:
+nrow(trips)
+
 # First of all, duration is in seconds; it will be easier to read in minutes:
 trips$duration = trips$duration / 60
 
-# OK, it seems like there's a crazy outlier in the duration column. Let's
+# OK, it seems like there's an outlier in the duration column. Let's
 # say that if the duration is more than a day we remove it.
 hist(trips$duration, breaks=100)
 trips = subset(trips, duration <= 24*60)
+nrow(trips)
 hist(trips$duration, breaks=100)
 
 # Our start_date and end_date variables are strings. We really want them to be
@@ -31,23 +35,23 @@ hist(trips$duration, breaks=100)
 ?strptime # We want %Y, %m, %d, %H %M %S
 trips$start_date = strptime(trips$start_date, "%Y-%m-%d %H:%M:%S")
 
+# We can take a look at what we've created using the str function:
+str(trips$start_date)
+
 # What is in a POSIXlt?
 ?POSIXlt
 
 # Breakdown by day of week? (0 is Sunday)
 table(trips$start_date$wday)
 
-# Yay for histograms! so amaze. wow.
+# Now it's easy to plot the distribution of trips by start date:
 hist(trips$start_date, breaks=100)
 
-# OK, let's do end_date too
+# Let's also convert over the end_date variable:
 trips$end_date = strptime(trips$end_date, "%Y-%m-%d %H:%M:%S")
 
 ###################################
-# Section 2: tapply/table with built-in commands
-
-# We're going to be doing a lot of tapply, so let's make sure we remember how to
-# use it. [[Pretty picture of tapply() works, in slides]]
+# Section 3: Leveraging built-in functions to summarize data
 
 # ** New question: what is the average duration of a trip by subscription type?
 
@@ -76,7 +80,7 @@ tapply(trips$duration, trips$end_date$mon, mean)
 sort(tapply(trips$subscription_type == "Casual", trips$start_station, mean))
 
 #########################################
-# Section 3: tapply with user-defined functions
+# Section 4: Leveraging user-defined functions to summarize data
 
 # Great. We are experts at tapply() with built-in functions. But sometimes this
 # is not enough! Let's say we wanted to figure out the two busiest days of the
@@ -93,28 +97,20 @@ table(trips$subscription_type, trips$start_date$wday)
 table(trips$start_date$wday)
 
 # We're going to want to sort our table since we need the biggest values
-sort(table(trips$start_date$wday))
-
-# Let's save it to a variable
-tab = sort(table(trips$start_date$wday))
+tab = sort(table(trips$start_date$wday), decreasing=TRUE)
 tab
 
-# The table stores the frequencies, and we want the names associated.
-names(tab)
+# We just want the first two entries
+tab[1:2]
 
-# Those quotes are strings (names are strings). as.numeric() will make them
-# numbers.
-ordered.days = as.numeric(names(tab))
-ordered.days
+# We actually want the names of the table output instead of the frequencies:
+names(tab[1:2])
 
-# The biggest 2 are the last 2. R indexes from 1 so we want:
-ordered.days[7]
-ordered.days[6]
-c(ordered.days[7], ordered.days[6])
+# Let's convert the names to numbers:
+as.numeric(names(tab[1:2]))
 
-# Remember that we actually wanted to compute the top 2 days for every type
-# [[Picture time! Group week day by type, compute 2 most common with fxn]]
-# Cool, so we need to actually make these steps into our own user-defined fxn
+# Now that we have the code to compute for the whole data frame, we
+# want to write our get.top.2 function for tapply
 
 # [[In separate file; I will show "source" and "copy"; mention need to re-do
 #   these steps every time you change the function!]]
@@ -157,8 +153,8 @@ prop.above.30 = function(x) {
 }
 tapply(trips$duration, trips$start_station, prop.above.30)
 
-# OR:
-tapply(trips$duration, trips$start_station, function(x) mean(x > 30))
+# We could have avoided writing a user-defined function with:
+tapply(trips$duration >= 30, trips$start_station, mean)
 
 # Bonus: compute the most common subscription type (Registered/Casual/Tie)
 # between every pair of start/end locations between which there has been at
@@ -189,10 +185,6 @@ table(pair.results)
 # columns representing the variables we built for each start station. This
 # methodology is called split-apply-combine.
 
-# [[Picture of split-apply-combine; split breaks large df into smaller ones,
-#    lapply converts small data frames into 1-row data frames; do.call(rbind)
-#    combines them into a single data frame.]]
-    
 # Let's first split on the start station.
 spl = split(trips, trips$start_station)
 summary(spl[[1]])
@@ -221,14 +213,10 @@ spl2 = lapply(spl, get.top.2.df)
 spl2[[1]]
 spl2[[2]]
 
-# Last step is to combine everything together. We could manually combine with
-# rbind:
-rbind(spl2[[1]], spl2[[2]], spl2[[3]])
-
 # do.call is a nifty function that passes all of the elements of its second
 # argument to its first argument, which is a function
 station.info = do.call(rbind, spl2)
-station.info
+head(station.info)
 table(station.info$day1)
 table(station.info$day2)
 
@@ -246,18 +234,20 @@ table(station.info$day2)
 # edit your function, remember to refresh it in your R console before re-running
 # lapply.
 
-spl = split(trips, trips$bike_nr)
-
 process.bike = function(x) {
 	bike.nr = x$bike_nr[1]
 	mean.duration = mean(x$duration)
 	sd.duration = sd(x$duration)
 	num.trips = nrow(x)
-	return(data.frame(bike_nr, mean.duration, sd.duration, num.trips))
+	return(data.frame(bike.nr, mean.duration, sd.duration, num.trips))
 }
 
+spl = split(trips, trips$bike_nr)
 spl2 = lapply(spl, process.bike)
 bicycle.info = do.call(rbind, spl2)
+
+# We can look at our new data frame:
+head(bicycle.info)
 
 # Bonus: Add the following additional variables:
 #   - multi.day: Number of trips starting and ending on a different day
@@ -265,64 +255,70 @@ bicycle.info = do.call(rbind, spl2)
 #                   number of values in a table tab)
 #   - common.end: Most common end location
 
-process.bike.bonus = function(x) {
-	bike_nr = x$bike_nr[1]
+process.bike = function(x) {
+	bike.nr = x$bike_nr[1]
 	mean.duration = mean(x$duration)
 	sd.duration = sd(x$duration)
 	num.trips = nrow(x)
-	multi.day = sum(x$start_date$yday != x$end_date$yday | x$start_date$year != x$end_date$year)
-	tab = sort(table(x$start_station))
-	common.start = as.numeric(names(tab))[length(tab)]
-	tab = sort(table(x$end_station))
-	common.end = as.numeric(names(tab))[length(tab)]
-	return(data.frame(bike_nr, mean.duration, sd.duration, num.trips,
+	multi.day = sum(x$start_date$yday != x$end_date$yday |
+	                x$start_date$year != x$end_date$year)
+	tab = sort(table(x$start_station), decreasing=TRUE)
+	common.start = as.numeric(names(tab))[1]
+	tab = sort(table(x$end_station), decreasing=TRUE)
+	common.end = as.numeric(names(tab))[1]
+	return(data.frame(bike.nr, mean.duration, sd.duration, num.trips,
 	                  multi.day, common.start, common.end))
 }
 
-spl2 = lapply(spl, process.bike.bonus)
-bicycle.info.bonus = do.call(rbind, spl2)
+spl2 = lapply(spl, process.bike)
+bicycle.info = do.call(rbind, spl2)
+
+# We can look at our new data frame:
+head(bicycle.info)
 
 ##########################
-# Section 5: Merging data, and the apply() function
+# Section 5: Merging data and the apply() function
 
 # So far we have not taken advantage of the lat/long information for the
 # start and end locations of our trips because trips and stations are separate.
 # Let's change that by merging together our data. Our eventual goal from this will
 # be to compute the distance of each trip (as the crow flies).
 
-# [[Picture of database operations in R (inner join, left outer join)]]
 # Let's combine together our data using merge(). First we will pull in data about
 # the start location.
 merged = merge(trips, stations, by.x="start_station", by.y="id")
-summary(merged)
+nrow(trips)
+nrow(merged)
+names(merged)
 
 # Great -- the "name", lat" and "lng" fields were merged in for the start
 # location. We want to do this for the end station, so let's merge again:
 merged = merge(merged, stations, by.x="end_station", by.y="id")
-summary(merged)
+nrow(merged)
+names(merged)
 
 # name.x, lat.x and lng.x are for the start location, name.y, lat.y and lng.y
 # are for the end location. The next step is to compute the distance for each
 # row.
 
-# We are now going to learn about a new function called apply(). [[picture of
-# apply, focus on how this is a matrix, so we need to have just numbers]].
 # OK, so right now we have more than just numbers (e.g. dates, text). We need
 # to limit ourselves to just numbers. We can do this by building a data frame
 # with just the columns we need (lat.x, lat.y, lng.x, lng.y):
-lat.long = merged[,c("lat.x", "lat.y", "lng.x", "lng.y")]
+lat.long = merged[c("lat.x", "lat.y", "lng.x", "lng.y")]
 lat.long = as.matrix(lat.long)  ## Technically don't need this step
 summary(lat.long)
 
 # OK, so now we need a function to compute great circle distance from lat/long.
-# Life is too short to do this stuff yourself, so we'll use a package. I found
+# Life is too short to implement this stuff yourself, so we'll use a package. I found
 # one on the Internet called Imap that has a nice interface (there are many
 # others). We want the gdist function. Let's try it out!
 install.packages("Imap")
 library(Imap)
 ?gdist
 lat.long[1,]
-gdist(-71.07730, 42.34967, -71.10081, 42.34002, units="km")
+gdist(-71.09788, 42.34476, -71.10081, 42.34002, units="km")
+gdist(lat.long[1,]["lng.x"], lat.long[1,]["lat.x"],
+      lat.long[1,]["lng.y"], lat.long[1,]["lat.y"], units="km")
 
 # Great -- let's write our function. We want to input a row of lat.long and
 # output gdist called on its four coordinates. [[Do in separate file]]
@@ -334,15 +330,11 @@ lat.long.dist = function(x) {
 # a row. If there are errors, this makes it very manageable to debug, since
 # it's just being called once, on the row you selected.
 lat.long.dist(lat.long[1,])
-lat.long.dist(lat.long[2,])
 
 # OK, time to use apply to compute the distance for every single trip.
 distance = apply(lat.long, 1, lat.long.dist)
 
-# (This takes a little over 2 minutes on my laptop, so I'll stall by describing
-# the assignment for this session).
-
-# Awesome -- now that we're done, we can plot the histogram of trip distance
+# Now that we're done, we can plot the histogram of trip distance
 hist(distance, breaks=100)
 
 # Finally, we'll copy the distance variable we created into our data frame
@@ -393,11 +385,7 @@ fee.info[1,]
 get.fee(fee.info[1,])
 fee.info[36,]
 get.fee(fee.info[36,])
-fee = apply(fee.info, 1, get.fee)
+trips$fee = apply(fee.info, 1, get.fee)
 
-# Fun things to do
-table(fee)
+# What are the total fees across the whole dataset?
 sum(fee)
-
-# OK, and we'll copy over the fees to the trips data frame
-trips$fee = fee

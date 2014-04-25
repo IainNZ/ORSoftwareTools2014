@@ -5,8 +5,8 @@ process.bike = function(df) {
     mean.duration = mean(df$duration)
     # Compute sd.duration
     # Compute num.trips
-    return(data.frame(bike_nr, mean.duration,
-	                  [add other variables here]))
+    return(data.frame(bike.nr, mean.duration, sd.duration,
+                      [add other variables here]))
 }
 
 

@@ -7,10 +7,10 @@
 
 
 
-prop.above.30 = function(x) {
-    # Add the expression to compute the proportion of durations
-    # >= 30
-    return([put expression here -- remember to use x])
+prop.above.30 = function(durations) {
+  # Add the expression to compute the proportion of durations
+  # >= 30
+  return(mean(durations >= 30))
 }
 
 
@@ -19,3 +19,19 @@ prop.above.30 = function(x) {
 # values filled in):
 
 # tapply([data], [category], [function])
+
+
+
+
+
+
+
+most.common = function(x) {
+  if (sum(x == "Registered") > sum(x == "Casual")) {
+    return("Registered")
+  } else if (sum(x == "Registered") < sum(x == "Casual")) {
+    return("Casual")
+  } else {
+    return("Tie")
+  }
+}
