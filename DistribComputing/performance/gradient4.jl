@@ -1,4 +1,8 @@
+# In this step we restructure the code to re-use a single
+# vector for storing the current gradient, instead of
+# allocating a new vector on each iteration of the algorithm.
 
+# In Julia, the function A_mul_B!(y,Q,x) sets y <- Q*x
 
 function genF(Q)
     function f_and_fgrad(x,grad_out)
@@ -50,12 +54,7 @@ srand(10) # fix random seed
 R = rand(dim,dim)
 f_and_fgrad = genF(R'*R)
 
-@unix_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@profile @time gradDescent(f_and_fgrad, ones(dim))
-	Profile.print(format=:flat)
-end
-@windows_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@time gradDescent(f_and_fgrad, ones(dim))
-end
+gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
+@profile @time gradDescent(f_and_fgrad, ones(dim))
+Profile.print(format=:flat)
+

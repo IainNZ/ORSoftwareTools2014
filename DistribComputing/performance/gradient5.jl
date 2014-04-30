@@ -1,4 +1,7 @@
-
+# In this step we call a specialized BLAS function for
+# performing the matrix-vector product Q*x, exploiting
+# the structure that Q is symmetric in order to reduce
+# the number of required operations.
 
 function genF(Q)
     function f_and_fgrad(x,grad_out)
@@ -51,12 +54,7 @@ srand(10) # fix random seed
 R = rand(dim,dim)
 f_and_fgrad = genF(R'*R)
 
-@unix_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@time @profile gradDescent(f_and_fgrad, ones(dim))
-	Profile.print(format=:flat)
-end
-@windows_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@time gradDescent(f_and_fgrad, ones(dim))
-end
+gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
+@time @profile gradDescent(f_and_fgrad, ones(dim))
+Profile.print(format=:flat)
+

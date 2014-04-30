@@ -1,4 +1,16 @@
+# This file contains a basic implementation of the standard
+# gradient descent algorithm, as described in, for example
+# "Numerical Optimization" by Nocedal and Wright.
+# The goal of this series of files is to step-by-step
+# perform some basic manipulations to transform a naive
+# implementation into a more efficient code.
 
+# The function we minimize in this example is the quadratic
+# function (1/2) x^TQx, whose minimum value is zero.
+
+# The output of this script is a log of the iterations, 
+# the total execution time, and a "profile" of the code which
+# indicates the time spent in each line.
 
 function genF(Q)
     f(x) = (1/2)*dot(x,Q*x)
@@ -43,10 +55,5 @@ f, fgrad = genF(R'*R)
 println("Test run:")
 gradDescent(x->0, x->[0.0], ones(1)) # run once to exclude compilation time
 
-@unix_only begin
-	@profile @time gradDescent(f, fgrad, ones(dim))
-	Profile.print(format=:flat)
-end
-@windows_only begin
-	@time gradDescent(f, fgrad, ones(dim))
-end
+@profile @time gradDescent(f, fgrad, ones(dim))
+Profile.print(format=:flat)
