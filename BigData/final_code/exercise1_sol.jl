@@ -1,5 +1,11 @@
-# Assignment 1: Iterating and Memory
-# Note: you don't really want to run this file directly
+#############################################################################
+# MIT 15.S60
+# Software Tools for Operations Research
+# IAP 2014
+#############################################################################
+# Big Data Exercise 1: Iterating and Memory
+# NOTE:
+# You don't really want to run this file directly
 # Instead, use it to inform what commands you type into the Julia prompt
 
 # 1. Open Julia
@@ -8,7 +14,7 @@
 # 2. Load trips.csv all at once
 # Use the readlines command we used before
 # Record memory usage here:
-trips_fp = open("../Hubway/trips.csv", "r")
+trips_fp = open("../../Hubway/trips.csv", "r")
 alllines = readlines(trips_fp)
 close(trips_fp)
 

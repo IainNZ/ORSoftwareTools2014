@@ -1,12 +1,18 @@
-# Assignment 1: Iterating and Memory
-# Note: you don't really want to run this file directly
+#############################################################################
+# MIT 15.S60
+# Software Tools for Operations Research
+# IAP 2014
+#############################################################################
+# Big Data Exercise 1: Iterating and Memory
+# NOTE:
+# You don't really want to run this file directly
 # Instead, use it to inform what commands you type into the Julia prompt
 
 # 1. Open Julia
 # Record memory usage here:
 
 # 2. Load trips.csv all at once
-# Use the readlines command we used before.
+# Use the readlines command as we used before.
 # Record memory usage here:
 
 # 3. Close Julia, open it again

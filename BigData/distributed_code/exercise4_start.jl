@@ -3,6 +3,7 @@
 # Software Tools for Operations Research
 # IAP 2014
 #############################################################################
+# Big Data Exercise 4
 # Hubway charges a variable amount for a bike ride, depending on the duration
 # of the ride. They have the following rates for casual users:
 # [0, 30) minutes -- $0

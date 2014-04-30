@@ -2,11 +2,11 @@
 
 ## Lecture Slides
 
-Slides are available via [Google Docs](https://docs.google.com/presentation/d/1pDGyRcIBwEC-W63NPNQMS6EGwndpOY82kf2g4-h3OV8/edit?usp=sharing).
+Slides are available in the script subfolder. The files in the ``distributed_code`` and in this folder are referred to directly from the slides.
 
 ## Installation Instructions
 
-We will use Julia and R. You will need the following R packages:
+We will use Julia and R in this module. No additional packages are needed for Julia, but you will need the following R packages:
 
  * ``ff``
  * ``ffbase``

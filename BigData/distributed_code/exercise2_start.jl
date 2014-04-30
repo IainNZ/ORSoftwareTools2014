@@ -1,4 +1,9 @@
-# Assignment 2
+#############################################################################
+# MIT 15.S60
+# Software Tools for Operations Research
+# IAP 2014
+#############################################################################
+# Big Data Exercise 2
 # Write a program in Julia (or whatever) that
 # 1. Takes trips.csv and extracts the start_station and end_station for 
 #    all trips with a duration between 60 and 3600, and saves them to
@@ -9,10 +14,8 @@
 # ids as you load reduced.csv? You can store the matrix of start-end trips
 # in a matrix or dictionary-of-dictionaries (extra: can you be even smarter?)
 
-# Fill in the ???
-
 # Part 1
-trips_fp = open("../Hubway/trips.csv", "r")  # Read
+trips_fp = open("../../Hubway/trips.csv", "r")
 reduced_fp = open("reduced.csv", "w")  # Write
 
 first_line = true
