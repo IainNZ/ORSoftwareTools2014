@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.10pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{MIP Callbacks}{16}{0}{2}
-\beamer@sectionintoc {3}{TSP}{43}{0}{3}
-\beamer@sectionintoc {4}{TSPaaS}{61}{0}{4}
-\beamer@sectionintoc {5}{Deployment}{65}{0}{5}
