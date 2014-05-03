@@ -1,4 +1,6 @@
-
+# In this step, we restructure the code so that the 
+# product Q*x is computed only once per iteration,
+# instead of twice (separately in f() and fgrad()).
 
 function genF(Q)
     function f_and_fgrad(x)
@@ -43,12 +45,6 @@ srand(10) # fix random seed
 R = rand(dim,dim)
 f_and_fgrad = genF(R'*R)
 
-@unix_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@profile @time gradDescent(f_and_fgrad, ones(dim))
-	Profile.print(format=:flat)
-end
-@windows_only begin
-	gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
-	@time gradDescent(f_and_fgrad, ones(dim))
-end
+gradDescent(f_and_fgrad, ones(dim)) # run once to exclude compilation time
+@profile @time gradDescent(f_and_fgrad, ones(dim))
+Profile.print(format=:flat)

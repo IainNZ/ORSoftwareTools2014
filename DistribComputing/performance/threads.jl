@@ -1,3 +1,7 @@
+# In this small script, we show how to tell BLAS to
+# exploit a multicore machine to speed up basic linear
+# algebra operations.
+
 
 function solve(n)
     A = rand(n,n)

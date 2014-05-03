@@ -1,3 +1,6 @@
+# In this step, we have transformed the vector expression
+# "x - (stepsize/2^k)*grad" into an efficient call to BLAS.
+# This requires a minor logical reorganization of the algorithm.
 
 
 function genF(Q)
@@ -44,10 +47,5 @@ f, fgrad = genF(R'*R)
 println("Test run:")
 gradDescent(x->0, x->[0.0], ones(1)) # run once to exclude compilation time
 
-@unix_only begin
-	@profile @time gradDescent(f, fgrad, ones(dim))
-	Profile.print(format=:flat)
-end
-@windows_only begin
-	@time gradDescent(f, fgrad, ones(dim))
-end
+@profile @time gradDescent(f, fgrad, ones(dim))
+Profile.print(format=:flat)
