@@ -1,10 +1,8 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # Solution to first two questions at end of first half of class.
-# This is the "solution" file - don't cheat :)
+# This is the "solution" file - don't cheat.
 #############################################################################
 
 using HttpServer

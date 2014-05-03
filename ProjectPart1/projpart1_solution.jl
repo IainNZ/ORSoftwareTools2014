@@ -1,7 +1,5 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # StationService
 # A webservice that takes four lat-lon points and returns the names of all

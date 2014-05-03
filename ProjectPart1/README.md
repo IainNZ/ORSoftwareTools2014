@@ -2,7 +2,7 @@
 
 ## Lecture Notes
 
-Lectures notes available via [Google Drive](https://docs.google.com/presentation/d/1ubTf_Lt2JzKDkkDzDIG9BhrTKq1lpsd-P5t9nutp3C4/edit?usp=sharing)
+Slides are provided in `bigdataslides.pdf`. The ``nameservice.jl`` file is a commented version of the "name returning service" described in the Internet section. It can be used as a script, and as a prompt for the exercise at the conclusion of this section. The solution is in ``nameaddservice_solution.jl``. The code file `db_script.jl` was used in the databases section of the module during the live coding session. Finally ``projpart1_solution.jl`` represents the desired result of the final exercise in the module.
 
 ## Installation Instructions
 
@@ -22,15 +22,15 @@ If this returns ``clang: error: no input files``, then you have the necessary co
 ```
 >> xcode-select --install
 ```
-and following the prompts. On older versions, you may need to install the entire Xcode application, which can be found [here](https://developer.apple.com/xcode/). Contact [huchette@mit.edu](huchette@mit.edu) if you need help with this. 
+and following the prompts. On older versions, you may need to install the entire Xcode application, which can be found [here](https://developer.apple.com/xcode/).
 
-## Assignment
+## Pre-class Assignment
 
 You need to test each package individually.
 
-1. We will turn the stations.csv Hubway data into a SQLite database. Run `create_db.jl` to do this.
-2. Next we will run `test_db.jl`. Please submit the output of this file.
-3. Now run `test_http.jl`. You should get a message like "Listening on 8000..." (Windows users: click allow if a firewall diaglog pops up.)
+1. We will turn the stations.csv Hubway data into a SQLite database. Run `assmt_create_db.jl` to do this.
+2. Next we will run `assmt_test_db.jl`. Please submit the output of this file.
+3. Now run `assmt_test_http.jl`. You should get a message like "Listening on 8000..." (Windows users: click allow if a firewall diaglog pops up.)
 4. Open a webbrowser and go to [http://localhost:8000/nameservice/yourname](http://localhost:8000/nameservice/yourname). Submit the text you see.
 
 Please combine both submissions together!

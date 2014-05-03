@@ -1,13 +1,9 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # NameService
 # A simple web service that, when given a name, inserts the name into
 # a message and returns it back to the user
-#
-# This is the "solution" file.
 #############################################################################
 
 # Required package: HTTPServer

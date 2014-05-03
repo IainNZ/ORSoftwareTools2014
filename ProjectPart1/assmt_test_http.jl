@@ -1,7 +1,5 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # NameService
 # A simple web service that, when given a name, inserts the name into

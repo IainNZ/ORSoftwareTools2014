@@ -1,7 +1,5 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # A "map-reduce" approach to analyzing the Hubway trip data.
 # This is the worked example at end of the class.

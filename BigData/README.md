@@ -2,7 +2,11 @@
 
 ## Lecture Slides
 
-Slides are available in the script subfolder. The files in the ``distributed_code`` and in this folder are referred to directly from the slides.
+Slides are provided in ``bigdataslides.pdf``. The code script files ``ffbiglm_script.r``, ``iterate_script.jl``, ``sketch_script.jl`` and ``mapreduce_script.jl`` are all referenced from the slides they should be used with.
+
+## Exercises
+
+Starter files were provided for three of the four in-class exercises (the ``..._start.jl`` files) as well as completed versions (the ``..._sol.jl`` files).
 
 ## Installation Instructions
 
@@ -12,7 +16,7 @@ We will use Julia and R in this module. No additional packages are needed for Ju
  * ``ffbase``
  * ``biglm``
 
-## Assignment
+## Pre-class Assignment
 
 Run the following R code and Julia code and submit the results on Stellar. You can find the source code files in this folder. You will need the Hubway station data as well - if the R code can't find the data, you will need to change the location of the file.
 

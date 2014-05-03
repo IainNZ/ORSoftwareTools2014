@@ -1,7 +1,5 @@
 #############################################################################
-# MIT 15.S60
 # Software Tools for Operations Research
-# IAP 2014
 #############################################################################
 # Big Data Exercise 4
 # Hubway charges a variable amount for a bike ride, depending on the duration
@@ -20,7 +18,7 @@
 #############################################################################
 
 # Open the trips data file
-file_ref = open("../../Hubway/trips.csv", "r")
+file_ref = open("../Hubway/trips.csv", "r")
 
 # MAP
 # Design the map function before coding.
@@ -36,41 +34,11 @@ function mapper(line)
 
     # Extract relevant fields
     # If entry is corrupted, just return nothing
+    # ...
 
-    duration = 0
-    try
-      duration = int(line_split[2])
-    catch
-      # Bad duration
-      return nothing
-    end
-
-    registered = false
-    if line_split[8] == "\"Registered\""
-      registered = true
-    end
-
-    start_station = 0
-    end_station = 0
-    try
-      start_station = int(line_split[4])
-      end_station = int(line_split[6])
-    catch
-      return nothing # Bad start or bad end
-    end
 
     # Calculate charge
-    charge = 0.0
-    if duration >= 30 && duration < 60
-      charge = 2.0 * duration
-    elseif duration >= 60 && duration < 420
-      charge = 8.0 * floor(duration/30) - 10.0
-    elseif duration >= 420
-      charge = 100.0
-    end
-    if registered
-      charge = 0.75 * charge
-    end
+    # ...
     
     # Our key is a pair, (start, end)
     # Our value is the charge
@@ -126,9 +94,6 @@ function reducer(keyvalues)
   # Challenge: add the random sampling method to select
   # one of the charges at random and return that as well
   # using the algorithm you saw earlier
-  charge_count = length(charges)
-  charge_mean = mean(charges)
-  charge_stddev = std(charges)
 
   return (startend[1], startend[2], charge_count, charge_mean, charge_stddev)
 end
