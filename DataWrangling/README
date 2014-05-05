@@ -1,0 +1,10 @@
+The following is a summary of the distributed content for the second module of the course, Data Wrangling:
+
+*** Instructor Script
+A full script for the instructor is available in script.pdf. This script describes how to work through the various files distributed as part of this week and how to switch between code and slides. DataWranglingSlides.pdf provides all slides for the module.
+
+*** Code distributed to students
+Files exercise2.R, exercise3.R, and exercise4.R should be distributed to students. They provide started code for three of the in-class exercises.
+
+*** Completed script files
+full_script.R contains all commands entered into the R console during the module, in addition to brief comments describing these commands (more detailed explanations are present in script.pdf). exercise2_final.R, exercise3_final.R, exercise4_final.R, latlong.R, and top2.R are completed script files for various parts of the module.
