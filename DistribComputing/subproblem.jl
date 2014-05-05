@@ -1,3 +1,6 @@
+# Code for solving the second-stage subproblem,
+# included from master.jl.
+
 import GZip
 using JuMP
 #using Clp

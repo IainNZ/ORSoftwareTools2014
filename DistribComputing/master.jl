@@ -1,3 +1,25 @@
+# This file, together with subproblem.jl was built as a case
+# study on how to use the parallel computing facilities of
+# Julia to solve a large scale data-driven optimization 
+# problem by applying Benders (or, L-shaped) decomposition.
+
+# The model is a capacity planning problem for the Hubway
+# bicycle sharing system, that is, to decide how to optimally
+# reallocate capacity (bicycle parking spots) across the network.
+# For tractability, we consider capacity of each Hubway station
+# to be continuous. The objective we minimize are the expected
+# total costs of "reshuffling" bikes across the network, an operation
+# that the system operators continuously perform in order to rebalance
+# the network when a station becomes completely full or empty.
+# As an approximation of the expected value, we use the average over
+# each historical day (the dataset contains 327 days) as "scenarios"
+# in a two-stage stochastic programming formulation.
+
+# The content of this code and a formal description of the model used
+# are beyond the scope of the High-performance and Distributed Computing
+# module.
+
+
 require("subproblem.jl")
 
 const weight = 100

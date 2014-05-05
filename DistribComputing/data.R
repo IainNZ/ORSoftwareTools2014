@@ -1,5 +1,7 @@
-##################################
-# Section 1: Load and explore data frame; some data cleaning
+# This is a helper file that prepares the data for the parallel computing
+# case study. Run this file using R in the current directory, and it
+# will create a new directory called "tripsbydate" with the formatted
+# data.
 
 # First, load datasets. It's often more convenient to just keep strings as
 # strings, so we pass stringsAsFactors=FALSE.
@@ -14,9 +16,6 @@ trips = subset(trips, !is.na(start_station) & !is.na(end_station))
 # dates so we can access useful things like day of week. In R, we use the 
 # strptime() function to handle this.
 trips$start_date = strptime(trips$start_date, "%Y-%m-%d %H:%M:%S")
-
-# Breakdown by day of week? (0 is Sunday)
-table(trips$start_date$wday)
 
 # OK, let's do end_date too
 trips$end_date = strptime(trips$end_date, "%Y-%m-%d %H:%M:%S")
