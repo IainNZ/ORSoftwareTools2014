@@ -83,7 +83,7 @@ server = Server(http)
 # You can access it by going to your browser and going
 # to http://localhost:8000/...
 # e.g. 
-#  http://localhost:8000/nameservice/Iain
+#  http://localhost:8000/nameservice/Barry
 #  http://localhost:8000/nameservice/Bad/Extra/Junk
 #  http://localhost:8000/catpictures
 run(server, 8000)

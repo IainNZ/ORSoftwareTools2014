@@ -6,7 +6,7 @@ Pre-course assignment (contains prerequisites, installation instructions, and as
 
 Prerequisites:
 
-This module builds on the Machine Learning in R and Data Wrangling classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Machine Learning in R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, the split-apply-combine framework, and creating your own functions. These were taught in Intermediate R. Please review all these concepts before class on Tuesday, especially if you are new to R.
+This module builds on the Machine Learning in R and Data Wrangling classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Machine Learning in R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, the split-apply-combine framework, and creating your own functions. These were taught in Data Wrangling. Please review all these concepts before class on Tuesday, especially if you are new to R.
 
 Installation Instructions:
 
@@ -37,11 +37,13 @@ Save plot.
 
 ********************************************************************
 
-How to use the materials script.R and slides.pptx to present the module:
+How to use the materials to present the module:
 
 The R file "script.R" contains the full script used for live coding. This was distributed to students ahead of time in case they wanted to use it as a reference after the class, or if they fell behind during class and wanted to catch up quickly. However, the main intent was for students to code in real time along with the instructor. Comments within the code can be used by the instructor as a guide for what to say, and are helpful to include for students if they refer to the script as a reference later on.
 
 The PowerPoint file "slides.pptx" contains the slides used in the module. This was distributed to students.
+
+The csv file "pollData.csv" was used as additional data for Exercise 6. This was distributed to students.
 
 The materials can be used to teach the module by interleaving slides and code in the following order:
 
@@ -62,7 +64,7 @@ The materials can be used to teach the module by interleaving slides and code in
 -Present slide 25 to introduce the ggmap package
 -Live code lines 189-216: plot the Hubway stations on a map of Boston
 -Present slide 26: Exercise 3
--Live code lines 217-154: Solution to exercise 3, histograms, and faceting.
+-Live code lines 217-254: Solution to exercise 3, histograms, and faceting.
 -Present slide 27: Exercise 4
 -Live code lines 255-297: Solution to exercise 4, overlaid histograms, heatmaps, wrap up of Section 1.
 -Present slide 28: Introduction to Section 2 - Using Visualization to Understand Your Model
