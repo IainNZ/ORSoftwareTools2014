@@ -41,7 +41,7 @@ How to use the materials to present the module:
 
 The R file "script.R" contains the full script used for live coding. This was distributed to students ahead of time in case they wanted to use it as a reference after the class, or if they fell behind during class and wanted to catch up quickly. However, the main intent was for students to code in real time along with the instructor. Comments within the code can be used by the instructor as a guide for what to say, and are helpful to include for students if they refer to the script as a reference later on.
 
-The PowerPoint file "slides.pptx" contains the slides used in the module. This was distributed to students.
+The pdf file "slides.pdf" contains the slides used in the module. This was distributed to students.
 
 The csv file "pollData.csv" was used as additional data for Exercise 6. This was distributed to students.
 
