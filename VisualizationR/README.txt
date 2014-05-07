@@ -6,7 +6,7 @@ Pre-course assignment (contains prerequisites, installation instructions, and as
 
 Prerequisites:
 
-This module builds on the Machine Learning in R and Data Wrangling classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Machine Learning in R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, the split-apply-combine framework, and creating your own functions. These were taught in Intermediate R. Please review all these concepts before class on Tuesday, especially if you are new to R.
+This module builds on the Machine Learning in R and Data Wrangling classes given in the first week. You should be comfortable writing R code to run linear regression, logistic regression, and clustering algorithms which were all taught in Machine Learning in R. You should also be comfortable using the table command, the apply family of functions (tapply, lapply, apply), the merge command, the split-apply-combine framework, and creating your own functions. These were taught in Data Wrangling. Please review all these concepts before class on Tuesday, especially if you are new to R.
 
 Installation Instructions:
 
@@ -64,7 +64,7 @@ The materials can be used to teach the module by interleaving slides and code in
 -Present slide 25 to introduce the ggmap package
 -Live code lines 189-216: plot the Hubway stations on a map of Boston
 -Present slide 26: Exercise 3
--Live code lines 217-154: Solution to exercise 3, histograms, and faceting.
+-Live code lines 217-254: Solution to exercise 3, histograms, and faceting.
 -Present slide 27: Exercise 4
 -Live code lines 255-297: Solution to exercise 4, overlaid histograms, heatmaps, wrap up of Section 1.
 -Present slide 28: Introduction to Section 2 - Using Visualization to Understand Your Model
