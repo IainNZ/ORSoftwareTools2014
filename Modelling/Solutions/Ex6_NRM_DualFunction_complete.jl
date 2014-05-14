@@ -1,4 +1,4 @@
-### 15.S60 Exercise 6 - LP modelling using Julia/JuMP
+### Exercise 6 - LP modelling using Julia/JuMP
 # In this exercise, we need to modify the solveNRMProblem function
 # from Exercise 5 so that it outputs the dual prices as well as the
 # objective value.

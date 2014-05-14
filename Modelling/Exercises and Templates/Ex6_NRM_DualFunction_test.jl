@@ -1,4 +1,4 @@
-### 15.S60 Exercise 6 Test Script - LP modelling using Julia/JuMP
+### Exercise 6 Test Script - LP modelling using Julia/JuMP
 # This script is to test your Ex6_NRM_DualFunction code.
 
 # Modify the "using ..." line below to use your Ex6_NRM_DualFunction script.

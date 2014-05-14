@@ -1,4 +1,4 @@
-### 15.S60 Exercise 7 Test Script - LP modelling using Julia/JuMP
+### Exercise 7 Test Script - LP modelling using Julia/JuMP
 # This script is to test your Ex7_NRM_SimulateControl code.
 
 # Modify the "using ..." line below to use your Ex7_NRM_SimulateControl script.

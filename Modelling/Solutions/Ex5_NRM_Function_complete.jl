@@ -1,4 +1,4 @@
-### 15.S60 Exercise 4 - LP modelling using Julia/JuMP
+### Exercise 4 - LP modelling using Julia/JuMP
 # In this exercise, we're going to solve the deterministic LP 
 # formulation of the network revenue management (NRM) problem.
 

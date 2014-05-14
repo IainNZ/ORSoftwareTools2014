@@ -4,8 +4,8 @@
 This module covers using the Julia language together with the JuMP modeling language for modeling and solving linear and linear mixed-integer optimization problems.
 
 - Installation instructions for Julia, JuMP and Gurobi are given below.  Gurobi is not strictly required. The default solver (GLPK) that comes down with JuMP is sufficient.
-- ``preClassassignment.jl" should be run after installation to confirm everything is working.  See [below]( https://github.com/IainNZ/ORSoftwareTools2014/blob/papersubmit/Modelling/README.md#assignment)
-- The file ```LpModeling.pptx''' describes the lecture.  Interspersed throughout are various coding exercises.
+- ``preClassassignment.jl" should be run after installation to confirm everything is working.  See below.
+- The file ```LpModeling.pdf''' describes the lecture.  Interspersed throughout are various coding exercises.
 - Templates for students for the coding exercises are in the folder ```Exercises and Templates'''  The scripts with the "test" suffix are to test some of our later scripts (which only contain function definitions). Feel free to have a look through these ahead of the class on Thursday. 
 - Solutions for instructors are in the folder ```Solutions"  These should not be distributed to students before class.
 
@@ -79,7 +79,7 @@ julia> Pkg.add("JuMP")
 
 Download and run the Julia script ``assignment.jl``. You can do this by opening a terminal window, navigating to the directory of ``assignment.jl``, and typing in
 ```
-julia assignment.jl
+julia preClassassignment.jl
 ```
 The output of the script is a list of seven names, with the heading 
 ```

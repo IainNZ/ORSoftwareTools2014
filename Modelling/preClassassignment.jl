@@ -1,4 +1,4 @@
-### 15.S60 Assignment - LP modelling using Julia/JuMP
+### Assignment - LP modelling using Julia/JuMP
 # In this assignment, we're going to assume you're planning a party,
 # and you're trying to decide which of your friends to invite. Your
 # party is a potluck, so you'd like to maximize the number of dishes

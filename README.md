@@ -1,26 +1,15 @@
-# MIT 15.S60 2014
-# Branch for submission to journal
-
 ## Software Tools for Operations Research
 
-### Class Summary
+Materials for each module are stored in a separate folder. In order, they are:
+* Machine Learning in R, in folder IntroR
+* Data Wrangling, in folder DataWrangling
+* Visualization, in folder VisualizationR
+* Algebraic Modeling with JuMP, in folder Modelling
+* Big Data, in folder BigData
+* High-Performance and Distributed Computing, in folder DistribComputing
+* Project Part I - Internet & Databases, in folder ProjectPart1
+* Project Part II - Advanced MILP techniques, in folder ProjectPart2
 
-* [Introduction to R](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/IntroR)
-* [Intermediate R](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/IntermediateR)
-* [Visualization in R](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/VisualizationR)
-* [Modelling with Julia/JuMP](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/Modelling)
-* [Big Data with Julia](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/BigData)
-* [Distributed Computing with Julia](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/DistribComputing)
-* [Project Part 1 - Internet & Databases](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/ProjectPart1)
-* [Project Part 2 - MILP Callbacks](https://github.com/IainNZ/ORSoftwareTools2014/tree/master/ProjectPart2)
+Each week contains a file README.md explaining how to teach that week's materials.
 
-### Assignments
-
-Assignments should be submitted via [Stellar](https://stellar.mit.edu/S/course/15/ia14/15.S60/index.html)
-
-### Git/GitHub tutorial
-
-Coming soon...
-
-
-
+In addition to these folders for each module, folder Hubway contains the Hubway Data Visualization Challenge dataset used throughout the course.

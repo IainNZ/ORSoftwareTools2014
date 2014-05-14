@@ -1,4 +1,4 @@
-### 15.S60 Exercise 3 - LP modelling using Julia/JuMP
+### Exercise 3 - LP modelling using Julia/JuMP
 # In this exercise, we use the facility location model
 # from Exercise 2, and we iteratively add constraints to cut off
 # the best solution.

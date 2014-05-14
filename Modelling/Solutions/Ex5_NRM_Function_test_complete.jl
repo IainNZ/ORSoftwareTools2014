@@ -1,4 +1,4 @@
-### 15.S60 Exercise 5 Test Script - LP modelling using Julia/JuMP
+### Exercise 5 Test Script - LP modelling using Julia/JuMP
 # This script is to test your Ex5_NRM_Function code.
 
 # Modify the "using ..." line below to use your Ex5_NRM_Function script.

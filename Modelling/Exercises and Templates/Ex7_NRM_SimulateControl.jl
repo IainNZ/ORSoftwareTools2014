@@ -1,4 +1,4 @@
-### 15.S60 Exercise 7 Script - LP modelling using Julia/JuMP
+### Exercise 7 Script - LP modelling using Julia/JuMP
 # In this exercise, we use the NRM LP solver code within a 
 # function to simulate bid-price control. The code is partially 
 # filled in; you need to fill in the parts labeled "- fill in here -" 

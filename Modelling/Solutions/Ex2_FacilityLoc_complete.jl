@@ -1,4 +1,4 @@
-### 15.S60 Exercise 2 - LP modelling using Julia/JuMP
+### Exercise 2 - LP modelling using Julia/JuMP
 # In this exercise we are formulating the facility location
 # problem using JuMP. 
 
