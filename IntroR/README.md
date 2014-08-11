@@ -1,4 +1,5 @@
 ## Introduction to R Pre-Assignment
+## Please e-mail jkung@mit.edu with any questions
 
 ## Installation Instructions
 
