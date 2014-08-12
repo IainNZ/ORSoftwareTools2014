@@ -1,5 +1,9 @@
 # Project Part 1 - Internet and Databases
 
+* Iain Dunning
+* http://iaindunning.com
+* iaindunning@gmail.com
+
 ## Lecture Notes
 
 Slides are provided in `projpart1slides.pdf`. The ``nameservice.jl`` file is a commented version of the "name returning service" described in the Internet section. It can be used as a script, and as a prompt for the exercise at the conclusion of this section. The solution is in ``nameaddservice_solution.jl``. The code file `db_script.jl` was used in the databases section of the module during the live coding session. Finally ``projpart1_solution.jl`` represents the desired result of the final exercise in the module.
