@@ -1,5 +1,8 @@
 # Project Part 2 - MILP Callbacks
 
+* Ross Anderson
+* http://rma350.scripts.mit.edu/home/
+
 ## Lecture Notes
 
 Slides are provided in `projectPartII.pdf`.
