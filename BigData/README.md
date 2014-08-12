@@ -1,5 +1,9 @@
 # Big Data
 
+* Iain Dunning
+* http://iaindunning.com
+* iaindunning@gmail.com
+
 ## Lecture Slides
 
 Slides are provided in ``bigdataslides.pdf``. The code script files ``ffbiglm_script.r``, ``iterate_script.jl``, ``sketch_script.jl`` and ``mapreduce_script.jl`` are all referenced from the slides they should be used with.
